@@ -18,3 +18,5 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
 - **JavaScript pagrindai** - laikoma, kad turite JavaScript pagrindus: žinote apie kintamuosius, sąlygos sakinius, ciklus, funkcijas
 - **Pakankami darbo kompiuteriu įgudžiai** - turėsite dirbti su failais, žinoti failų sistemos pagrindus (kaip sukonstruoti kelią iki failo) ir pan.
 - **Anglų kalba** - dauguma kurso medžiagos bus anglų kalba
+## Naudingos nuorodos
+- [Angular.js dokumentacija](https://docs.angularjs.org/api)
