@@ -20,3 +20,6 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
 - **Anglų kalba** - dauguma kurso medžiagos bus anglų kalba
 ## Naudingos nuorodos
 - [Angular.js dokumentacija](https://docs.angularjs.org/api)
+
+## Paskaitos rašliava
+ - [Plunkr nuoroda](https://plnkr.co/edit/3Vy9wsrZ3Edqukp4HwMH?p=preview)
