@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="main">
+  <head>
+    <title>Angular.js direktyvos</title>
+  </head>
+
+  <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <div ng-controller="MainController">
+            <div ng-class="musuKlase" ng-style="musuStilius">
+                <a ng-href="{{url}}">Linkas</a>
+                <img ng-src="{{catUrl}}" />
+
+                <input type="text" ng-model="vardas" ng-focus="console.log('focus entered')" />
+                <div>
+                    {{ vardas }}
+                </div>
+                <input type="checkbox" ng-checked="likesPizza" ng-disabled="likesPizzaDisabled" /> Likes pizza <br/>
+                <button ng-click="disableCheckbox()">Disable checkbox</button>
+                <div style="background: red; height: 50px;" ng-if="divShown">
+                </div>
+                <button ng-click="showDiv()">Show div</button>
+                <button ng-click="changeFooter()">Change footer</button>
+                <ul ng-repeat="zmogus in zmones">
+                    <li>{{ zmogus.vardas }} <strong>{{ zmogus.amzius }}</strong></li>
+                </ul>
+                <form ng-submit="pridetiZmogu()">
+                    Vardas: <input type="text" ng-model="naujasZmogus.vardas" /><br/>
+                    Amzius: <input type="text" ng-model="naujasZmogus.amzius" /><br/>
+                    <button type="submit">Prideti</button>
+                </form>
+                <div>{{dabar | date:'fullDate'}}</div>
+                <div ng-include="includeUrl">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var module = angular.module('main', [])
+            
+            function MainController($scope) {
+                $scope.musuKlase = 'labas'
+                $scope.musuStilius = {
+                    marginLeft: '10px'
+                }
+                $scope.url = 'http://google.com'
+                $scope.catUrl = 'http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg'
+                $scope.vardas = 'Juozas'
+                $scope.likesPizza = false
+                $scope.likesPizzaDisabled = false
+                $scope.disableCheckbox = function() {
+                    $scope.likesPizzaDisabled = !$scope.likesPizzaDisabled
+                }
+                $scope.console = window.console
+                $scope.divShown = true
+                $scope.showDiv = function() {
+                    $scope.divShown = !$scope.divShown
+                }
+                $scope.includeUrl = 'footer.html'
+
+                $scope.changeFooter = function() {
+                    $scope.includeUrl = 'footer-alternative.html'
+                }
+
+                $scope.zmones = [
+                    { vardas: 'Juozas', amzius: 16 },
+                    { vardas: 'Petras', amzius: 20 },
+                    { vardas: 'Migle', amzius: 33 }
+                ]
+
+                $scope.naujasZmogus = {}
+                $scope.pridetiZmogu = function() {
+                    $scope.zmones.push($scope.naujasZmogus)
+                    $scope.naujasZmogus = {}
+                }
+
+                $scope.dabar = new Date()
+            }
+
+            module.controller('MainController', MainController)
+        </script>
+  </body>
+</html>

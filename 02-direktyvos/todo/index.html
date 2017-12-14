@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="todo">
+    <head>
+        <title>to do list</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script src="scripts/TodoController.js"></script>
+    </head>
+    <body ng-controller="TodoController">
+        <form ng-submit="issaugoti(task)">
+            <input type="text" ng-model="task" />
+        </form>
+        <ul ng-repeat="item in todoList | filter:currentFilter">
+            <li><input type="checkbox" ng-model="item.done" />{{ item.task }}</li>
+        </ul>
+        <div>{{ (todoList | filter:isNotDone).length }} items left</div>
+        <div>{{ countNotDone() }} items left</div>
+        <button ng-click="showAll()">All</button>
+        <button ng-click="showActive()">Active</button>
+        <button ng-click="showCompleted()">Completed</button>
+    </body>
+</html>
