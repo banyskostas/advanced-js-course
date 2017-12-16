@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+    <body>
+        <script>
+            console.log('this yra', this) // will log window object
+            var a = 1
+            console.log('this yra', this) // will log window object with variable 'a' in it -> global variables are defined on window object
+            /*
+            console.log(a)
+            console.log(window.a) // node.js console.log(global.a)
+            console.log(this.a)
+            */
+
+            function funkcija(message) {
+                console.log(message, this)
+            }
+
+            var rezultatas = funkcija('Pavieniui:')     // same as window.funkcija(), will log window object as this
+            console.log('Pavieniui rezultatas:', rezultatas)
+
+            var obj = {
+                x: 1,
+                f: funkcija
+            }
+
+            rezultatas = obj.f('ant objekto') // will log obj as this
+            console.log('Ant objekto rezultatas:', rezultatas)
+
+            rezultatas = new funkcija('su new') // will log empty object as this and return the same object
+            console.log('Su new rezultatas', rezultatas)
+
+            function kitaFunkcija() {
+                this.x = 1
+                console.log('kitos funkcijos viduje', this)
+            }
+
+            rezultatas = new kitaFunkcija() //will log empty object with property 'x' in it as this
+            console.log('Kitos funkcijos rezultatas', rezultatas)
+
+            rezultatas = funkcija.call({ a: 1 }, 'Naudojant call')
+            console.log('naudojant "call" rezultatas', rezultatas)
+
+            rezultatas = funkcija.apply({ a: 1 }, ['Naudojant apply'])
+            console.log('naudojant "apply" rezultatas', rezultatas)
+
+            function Animal(name) {
+                this.name = name
+                this.jump = function() {
+                    console.log('jumping')
+                }
+            }
+            
+            var x = new Animal('Dog')
+            console.log('Animal name', x.name)
+            x.jump()
+
+            Animal.prototype.kind = 'mammal'
+            console.log('Prototype', Animal.prototype)
+
+            var y = new Animal('Goldfish')
+            var z = new Animal('Goldfish')
+            console.log(y.kind) // kind exists because it is taken from the prototype object
+            console.log(z.kind)
+
+            function Animal2(name) {
+                this.name = name
+                this.kind = 'reptile'
+            }
+            Animal2.prototype.kind = 'mammal'
+            var a2 = new Animal2('Cat')
+            console.log(a2.kind)
+            console.log(a2.__proto__.kind)
+            console.log(a2.__proto__.__proto__.kind)
+            console.log(a2)
+
+            function Dog(name) {
+                this.bark = function() {
+                    console.log('barking')
+                }
+            }
+
+            Dog.prototype = new Animal()
+
+            var dog = new Dog()
+            console.log(dog)
+
+            function argumentai(a, b, c, d) {
+                console.log('a=', a, 'b = ', b, 'c =', c, 'd =', d)
+            }
+
+            argumentai()
+            argumentai(1)
+            argumentai(1, 'abc')
+            argumentai(2, 3, 4)
+            argumentai(2, 3, 4, 5)
+
+
+            console.log(dog.name)
+            console.log(dog.kind) // kind exists because: dog's prototype is an Animal object, Animal's prototype object has kind property
+
+            function Cat(name) {
+                Animal.call(this, name)
+
+                this.purr = function() {
+                    console.log('purr')
+                }
+            }
+            Cat.prototype = new Animal()
+        </script>
+
+        <script>
+            function MainController(name, lastname) {
+                this.name = name
+                this.lastname = lastname
+            }
+
+            MainController.prototype.doStuffWhenButtonIsClicked = function() {
+                //console.log
+            }
+
+            MainController.prototype = {
+                doStuffWhenButtonIsClicked: function() {
+
+                }
+            }
+
+            function MainController(doStuffWhenButtonIsClicked) {
+                this.doStuffWhenButtonIsClicked = function() {
+
+                }
+
+                this.doStuffWhenButtonIsClicked = doStuffWhenButtonIsClicked
+            }
+
+
+            var x = new MainController()
+            var y = new MainController()
+
+            String.prototype.doStuff = function() {
+                console.log('labas')
+            }
+        </script>
+    </body>
+</html>

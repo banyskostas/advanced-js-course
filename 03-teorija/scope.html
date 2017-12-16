@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            function pirma() {
+                a = 1
+            }
+
+            function antra() {
+                console.log('a =', a)
+            }
+
+            pirma()
+            antra()
+        </script>
+        <script>
+            function trecia() {
+                var b = 1
+            }
+
+            function ketvirta() {
+                console.log('b =', b)
+            }
+
+            trecia()
+            ketvirta()
+        </script>
+        <script>
+            var c = 123
+
+            function penkta() {
+                console.log('is pradziu c =', c)
+                c = 456
+                console.log('po to c =', c)
+            }
+            penkta()
+        </script>
+        <script>
+            var d = 123
+
+            function sesta() {
+                // var d;
+                console.log('is pradziu d =', d)
+                var d = 456
+                console.log('po to d =', d)
+                // console.log(window.d)
+            }
+            sesta()
+        </script>
+        <script>
+            for (var i = 0; i < 5; i++) {
+                var kvadratas = i * i
+                // console.log(kvadratas)
+            }
+
+            console.log('kvadratas =', kvadratas)
+        </script>
+        <script>
+            var e = 5
+            var e = 6
+            console.log('e =', e)
+        </script>
+        <script>
+            var f = 5
+        </script>
+        <script>
+            var f = 6
+        </script>
+        <script>
+            console.log('f =', f)
+        </script>
+        <script>
+            function septinta() {
+                console.log('kvieciam septinta')
+            }
+
+            function septinta() {
+                console.log('kvieciam kita septinta')
+            }
+
+            //var septinta = function() { ... }
+
+            septinta()
+        </script>
+        <script>
+            function astunta() { //function rectangle() { ... }
+                console.log('kvieciam astunta')
+            }
+
+            function devinta() { //function angular() { ... }
+                astunta()
+                console.log('kvieciam devinta')
+            }
+        </script>
+        <script>
+            function astunta() {
+                console.log('kvieciam kita astunta')
+            }
+        </script>
+        <script>
+            devinta()
+        </script>
+        <script>
+            function angularCreator() {
+                function rectangle() { // var rectangle = function() { ... }
+
+                }
+                
+                function triangle() { // var triangle = function() { ... }
+
+                }
+
+                return {
+                    rectangle: rectangle,
+                    triangle: triangle
+                }
+            }
+            
+            // rectangle() <- klaida
+
+            var angular = angularCreator()
+            // angular.rectangle() <- ok
+
+            var angular = function() {
+                function rectangle() {
+
+                }
+
+                return {
+                    rectangle: rectangle
+                }
+            }
+            //angular().rectangle()
+            var angular = (function() {
+                function rectangle() {
+
+                }
+
+                function triangle() {
+
+                }
+
+                return {
+                    rectangle: rectangle
+                }
+
+                /*
+                return {
+                    rectangle: function() {
+
+                    },
+                    triangle: function() {
+
+                    },
+                    kintamasis: 1
+                }
+                */
+            })() // IIFE (Immediately executed function expression)
+            // revealing module pattern
+        </script>
+        <script>
+            'use strict'
+
+            function kazkas() {
+                var kintamasis = 3
+                /// ...200 lines later
+                kintmasis = 7
+                console.log(kintamasis)
+            }
+
+            kazkas()
+        </script>
+    </body>
+</html>
