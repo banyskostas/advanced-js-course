@@ -1,0 +1,12 @@
+<!doctype html>
+<html ng-app="github">
+    <head>
+        <title>to do list</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript" src="scripts/GithubProfileController.js"></script>
+    </head>
+    <body ng-controller="GithubProfileController as profile">
+        <img ng-src="{{profile.data.avatar_url}}" />
+    </body>
+</html>
