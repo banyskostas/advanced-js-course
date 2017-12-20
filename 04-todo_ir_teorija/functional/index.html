@@ -1,0 +1,94 @@
+<html>
+    <script>
+        function nelyginiaiElementai(array) {
+            var result = []
+
+            for (var i = 0; i < array.length; i++) {
+                var el = array[i]
+                if (el % 2 == 1) {
+                    result.push(el)
+                }
+            }
+
+            return result
+        }
+
+        function lyginiaiElementai(array) {
+            var result = []
+
+            for (var i = 0; i < array.length; i++) {
+                var el = array[i]
+                if (el % 2 == 0) {
+                    result.push(el)
+                }
+            }
+
+            return result
+        }
+
+        function didesniNei5(array) {
+            var result = []
+
+            for (var i = 0; i < array.length; i++) {
+                var el = array[i]
+                if (el > 5) {
+                    result.push(el)
+                }
+            }
+
+            return result
+        }
+
+        function ilgisDidesnisUz5(array) {
+            var result = []
+
+            for (var i = 0; i < array.length; i++) {
+                var el = array[i]
+                if (el.length > 5) {
+                    result.push(el)
+                }
+            }
+
+            return result
+        }
+
+        function yraNelyginis(sk) {
+            return sk % 2 == 1
+        }
+
+        function filter(array, condition) {
+            var result = []
+
+            for (var i = 0; i < array.length; i++) {
+                var el = array[i]
+                if (condition(el)) {
+                    result.push(el)
+                }
+            }
+
+            return result
+        }
+
+        var rezultatas = [1, 4, 5, 23, 5].reduce(function(tarpinis, el) {
+            return tarpinis + "," + el
+        }, "")
+        console.log(rezultatas.substring(1, rezultatas.length))
+
+        var masyvas = [1, 4, 5, 23, 5]
+        rezultatas = masyvas.reduce(function(tarpinis, el) {
+            var newMin = Math.min(tarpinis.min, el)
+            var newMax = Math.max(tarpinis.max, el)
+            return { min: newMin, max: newMax }
+        }, { min: masyvas[0], max: masyvas[0] })
+        console.log(rezultatas)
+
+
+        function reduce(array, reductor, seed) {
+            var tarpinis = seed
+            for (var i = 0; i < array.length; i++) {
+                tarpinis = reductor(tarpinis, array[i])
+            }
+            return tarpinis
+        }
+    </script>
+</html>
