@@ -1,0 +1,44 @@
+.user-details {
+    display: flex;
+    align-items: space-between;
+}
+
+.user-details img {
+    width: 100px;
+    height: 100px;
+}
+
+.user-details .user-data {
+    padding: 10px;
+}
+
+.repo-list,
+.file-list
+{
+    list-style: none;
+    padding: 0;
+}
+
+.repo-list li:nth-child(2n),
+.file-list li:nth-child(2n)
+{
+    background: #EBEBEB;
+}
+
+.repo-list li a,
+.file-list li a,
+.file-list li span
+{
+    display: inline-block;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+
+.file-list li span {
+    text-align:right;
+}
+
+.file-list li {
+    display: flex;
+    align-items: space-between;
+}

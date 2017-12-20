@@ -1,0 +1,8 @@
+<div ng-show="profile.files != null">
+    <ul class="file-list">
+        <li ng-repeat="file in profile.files">
+            <a href="#">{{file.name}}</a>
+            <span>{{file.type}}</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,16 @@
+<div class="user-details" ng-show="profile.user !== null">
+    <img ng-src="{{profile.user.avatar}}">
+    <div class="user-data">
+        Login: <span>{{profile.user.login}}</span><br/>
+        Name: <span>{{profile.user.name}}</span></br>
+        Company: <span>{{profile.user.company}}</span></br>
+        Location: <span>{{profile.user.location}}</span>
+    </div>
+</div>
+<div ng-show="profile.user !== null">
+    <ul class="repo-list">
+        <li ng-repeat="repo in profile.user.repos">
+            <a href="javascript:;" ng-click="profile.showFiles(repo)">{{repo.name}}</a>
+        </li>
+    </ul>
+</div>
