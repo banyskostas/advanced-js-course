@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Github demo</title>
+        <link rel="stylesheet" href="styles/all.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        <script data-main="scripts/app" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
+    </head>
+    <body ng-controller="GithubProfileController as profile">
+        <form>
+            <input type="text" ng-model="profile.searchUsername" />
+            <button ng-click="profile.searchUser()">Search</button>
+        </form>
+        <ui-view></ui-view>
+    </body>
+</html>
