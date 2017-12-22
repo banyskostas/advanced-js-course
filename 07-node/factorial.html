@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Amd demo</title>
+    </head>
+    <body>
+        <script>
+            function factorial(n) {
+                var result = 1
+                for (var i = 1; i <= n; i++) {
+                    result *= i
+                }
+                return result
+            }
+
+            function factorial2(n) {
+                if (n === 1) {
+                    return n
+                }
+
+                return n * factorial2(n - 1)
+            }
+
+            for (var i = 0; i < 100; i++) {
+                console.log(i)
+            }
+
+            function doStuff(i) {
+                console.log(i)
+            }
+
+            function loop(start, end) {
+                if (start === end) {
+                    return
+                }
+
+                doStuff(start)
+                loop(start + 1, end)
+            }
+        </script>
+    </body>
+</html>
