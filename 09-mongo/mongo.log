@@ -1,0 +1,123 @@
+> function add(x, y) { return x + y }
+> add(1, 45)
+46
+> show dbs
+admin  0.000GB
+local  0.000GB
+> use local
+switched to db local
+> show collections
+startup_log
+> use new_database
+switched to db new_database
+> show dbs
+admin  0.000GB
+local  0.000GB
+> db.myCollection.save({ name: 'vytautas' })
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin         0.000GB
+local         0.000GB
+new_database  0.000GB
+> show collections
+myCollection
+> db.myCollection.find()
+{ "_id" : ObjectId("5a4523fcb9c6d7638bcd9584"), "name" : "vytautas" }
+> db.myCollection.save({ _id: 1, company: 'Baltic talents' })
+WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
+> db.myCollection.find()
+{ "_id" : ObjectId("5a4523fcb9c6d7638bcd9584"), "name" : "vytautas" }
+{ "_id" : 1, "company" : "Baltic talents" }
+> show collections
+myCollection
+> db.myCollection.drop()
+true
+> show collections
+> db.students.save({ name: 'Juozas', age: 23 })
+WriteResult({ "nInserted" : 1 })
+> db.students.save({ name: 'Gediminas', age: 34 })
+WriteResult({ "nInserted" : 1 })
+> db.students.save({ name: 'Migle', age: 45 })
+WriteResult({ "nInserted" : 1 })
+> db.students.save({ name: 'Dalia', age: 56 })
+WriteResult({ "nInserted" : 1 })
+> db.stundents.find()
+> db.students.find()
+{ "_id" : ObjectId("5a4529fbb9c6d7638bcd9585"), "name" : "Juozas", "age" : 23 }
+{ "_id" : ObjectId("5a452a05b9c6d7638bcd9586"), "name" : "Gediminas", "age" : 34 }
+{ "_id" : ObjectId("5a452a1bb9c6d7638bcd9587"), "name" : "Migle", "age" : 45 }
+{ "_id" : ObjectId("5a452a24b9c6d7638bcd9588"), "name" : "Dalia", "age" : 56 }
+> db.students.find({ age: 34 })
+{ "_id" : ObjectId("5a452a05b9c6d7638bcd9586"), "name" : "Gediminas", "age" : 34 }
+> db.students.find({ age: { $gt: 34 } })
+{ "_id" : ObjectId("5a452a1bb9c6d7638bcd9587"), "name" : "Migle", "age" : 45 }
+{ "_id" : ObjectId("5a452a24b9c6d7638bcd9588"), "name" : "Dalia", "age" : 56 }
+> db.students.save({ name: 'Valerijus', age: 67, finishedCourses: [ 'frontend', 'php', 'advanced-js' ] })
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("5a4529fbb9c6d7638bcd9585"), "name" : "Juozas", "age" : 23 }
+{ "_id" : ObjectId("5a452a05b9c6d7638bcd9586"), "name" : "Gediminas", "age" : 34 }
+{ "_id" : ObjectId("5a452a1bb9c6d7638bcd9587"), "name" : "Migle", "age" : 45 }
+{ "_id" : ObjectId("5a452a24b9c6d7638bcd9588"), "name" : "Dalia", "age" : 56 }
+{ "_id" : ObjectId("5a452ae5b9c6d7638bcd9589"), "name" : "Valerijus", "age" : 67, "finishedCourses" : [ "frontend", "php", "advanced-js" ] }
+> db.students.find({ finishedCourses: 'php' })
+{ "_id" : ObjectId("5a452ae5b9c6d7638bcd9589"), "name" : "Valerijus", "age" : 67, "finishedCourses" : [ "frontend", "php", "advanced-js" ] }
+> db.students.save({ name: 'Marius', age: 56, address: { street: 'Savanoriu', house: 34, city: 'Vilnius' } })
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("5a4529fbb9c6d7638bcd9585"), "name" : "Juozas", "age" : 23 }
+{ "_id" : ObjectId("5a452a05b9c6d7638bcd9586"), "name" : "Gediminas", "age" : 34 }
+{ "_id" : ObjectId("5a452a1bb9c6d7638bcd9587"), "name" : "Migle", "age" : 45 }
+{ "_id" : ObjectId("5a452a24b9c6d7638bcd9588"), "name" : "Dalia", "age" : 56 }
+{ "_id" : ObjectId("5a452ae5b9c6d7638bcd9589"), "name" : "Valerijus", "age" : 67, "finishedCourses" : [ "frontend", "php", "advanced-js" ] }
+{ "_id" : ObjectId("5a452b46b9c6d7638bcd958a"), "name" : "Marius", "age" : 56, "address" : { "street" : "Savanoriu", "house" : 34, "city" : "Vilnius" } }
+> db.students.find({ adress: { city: 'Vilnius' } })
+> db.students.find({ 'address.city': 'Vilnius' })
+{ "_id" : ObjectId("5a452b46b9c6d7638bcd958a"), "name" : "Marius", "age" : 56, "address" : { "street" : "Savanoriu", "house" : 34, "city" : "Vilnius" } }
+> db.values.save({ _id: 1, value: 'foo' })
+WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
+> db.values.save({ _id: 2, value: 'bar' })
+WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 2 })
+> db.values.find()
+{ "_id" : 1, "value" : "foo" }
+{ "_id" : 2, "value" : "bar" }
+> db.values.save({ _id: 1, value: 'foo', x: 1 })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.values.find()
+{ "_id" : 1, "value" : "foo", "x" : 1 }
+{ "_id" : 2, "value" : "bar" }
+> var x = db.values.findOne({ value: 'bar' })
+> x
+{ "_id" : 2, "value" : "bar" }
+> x.value = 'baz'
+baz
+> db.values.save(x)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.values.find()
+{ "_id" : 1, "value" : "foo", "x" : 1 }
+{ "_id" : 2, "value" : "baz" }
+> db.values.save({ _id: 1, namas: 'Raudonas' })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.values.find()
+{ "_id" : 1, "namas" : "Raudonas" }
+{ "_id" : 2, "value" : "baz" }
+> db.values.update({ _id: 1 }, { autobusas: 'melynas' }})
+2017-12-28T17:43:18.509+0000 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:53
+> db.values.update({ _id: 1 }, { autobusas: 'melynas' })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.values.find()
+{ "_id" : 1, "autobusas" : "melynas" }
+{ "_id" : 2, "value" : "baz" }
+> db.values.update({ _id: 1 }, { $set: { namas: 'raudonas' } })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.values.find()
+{ "_id" : 1, "autobusas" : "melynas", "namas" : "raudonas" }
+{ "_id" : 2, "value" : "baz" }
+> db.values.updateMany({ _id: 1 }, { $set: { namas: 'raudonas' } })
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 0 }
+> db.values.updateMany({}, { $set: { namas: 'raudonas' } })
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 1 }
+> db.values.find()
+{ "_id" : 1, "autobusas" : "melynas", "namas" : "raudonas" }
+{ "_id" : 2, "value" : "baz", "namas" : "raudonas" }
+
