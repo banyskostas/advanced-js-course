@@ -1,0 +1,15 @@
+{
+  "name": "npm-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app/index.js",
+  "scripts": {
+    "run": "node src/app/index.js",
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "restify": "^6.3.4"
+  }
+}
