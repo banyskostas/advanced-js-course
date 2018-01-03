@@ -1,5 +1,9 @@
+import uuid from 'uuid/v4'
+import moment from 'moment'
+/*
 var uuid = require('uuid/v4')
 var moment = require('moment')
+*/
 
 function jobToDto(job) {
     job.id = job._id
@@ -7,7 +11,7 @@ function jobToDto(job) {
     return job
 }
 
-function register(server, mongoClient) {
+export function register(server, mongoClient) {
     var jobsCollection = mongoClient.db('darbobirza')
         .collection('jobs')
 
@@ -37,7 +41,7 @@ function register(server, mongoClient) {
 
     // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
     function listJobs(filter) {
-        var mongoQuery = {}
+        const mongoQuery = {}
         if (filter.namePart) {
             mongoQuery.name = new RegExp('.*' + filter.namePart + '.*')
         }
@@ -46,22 +50,51 @@ function register(server, mongoClient) {
             mongoQuery.employerId = filter.employerId
         }
 
-        var dateFilter = {}
+        const dateFilter = {}
         if (filter.startingFrom) {
-            var startingFrom = moment(filter.startingFrom)
+            const startingFrom = moment(filter.startingFrom)
             if (startingFrom.isValid()) {
                 dateFilter['$gte'] = startingFrom.toDate()
             }
         }
 
         if (filter.startingTo) {
-            var startingTo = moment(filter.startingTo)
+            const startingTo = moment(filter.startingTo)
             if (startingTo.isValid()) {
                 dateFilter['$lt'] = startingTo.toDate()
             }
         }
         if (Object.keys(dateFilter).length) {
             mongoQuery.startDate = dateFilter
+        }
+
+        if (filter.category) {
+            const categories = filter.category.split(',')
+            mongoQuery.category = {
+                '$in': categories
+            }
+        }
+
+        const rateFilter = {}
+        if (filter.rateFrom) {
+            const rateFrom = parseFloat(filter.rateFrom)
+            if (!isNaN(rateFrom)) {
+                rateFilter['$gte'] = rateFrom
+            }
+        }
+
+        if (filter.rateTo) {
+            const rateTo = parseFloat(filter.rateTo)
+            if (!isNaN(rateTo)) {
+                rateFilter['$lt'] = rateTo
+            }
+        }
+        if (Object.keys(rateFilter).length) {
+            mongoQuery.rate = rateFilter
+        }
+
+        if (filter.city) {
+            mongoQuery['address.city'] = filter.city
         }
 
         return jobsCollection
@@ -147,5 +180,3 @@ function register(server, mongoClient) {
             })
     })
 }
-
-module.exports.register = register
