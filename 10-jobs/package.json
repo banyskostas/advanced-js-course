@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "joi": "^13.1.0",
     "moment": "^2.20.1",
     "mongodb": "^3.0.1",
     "restify": "^6.3.4",

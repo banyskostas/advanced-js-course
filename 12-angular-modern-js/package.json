@@ -1,0 +1,37 @@
+{
+  "name": "12-angular-modern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "mkdir -p dist/scripts && cp src/*.html dist/",
+    "build": "browserify src/scripts/app.js -o dist/scripts/bundle.js -t [ babelify ]",
+    "prestart": "npm run build",
+    "start": "cd dist && http-server",
+    "watch": "npm-watch"
+  },
+  "watch": {
+      "start": "src/**/*.*"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "http-server": "^0.10.0",
+    "npm-watch": "^0.3.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.12",
+    "angular": "^1.6.8",
+    "domready": "^1.0.8"
+  }
+}

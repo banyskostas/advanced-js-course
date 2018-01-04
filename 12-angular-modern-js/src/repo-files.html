@@ -1,0 +1,8 @@
+<div>
+    <ul class="file-list">
+        <li ng-repeat="file in fileList.files">
+            <a ui-sref="repoFiles({ username: fileList.username, repo: fileList.repo, path: fileList.path + '/' + file.name })">{{file.name}}</a>
+            <span>{{file.type}}</span>
+        </li>
+    </ul>
+</div>
