@@ -1,5 +1,5 @@
-$backgroundColor: 'red';
+@import '../../node_modules/spinthatshit/src/loaders';
 
-body {
-    background: $backgroundColor;
+.loader {
+  @include loader01;
 }
