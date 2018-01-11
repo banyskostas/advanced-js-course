@@ -1,11 +1,11 @@
-import angular from 'angular'
+import * as angular from 'angular'
 import { JobsController } from './jobs/JobsController'
-import domready from 'domready'
-import '@uirouter/angularjs'
+import domready = require('domready')
+import { StateProvider, UrlRouterProvider } from '@uirouter/angularjs'
 
 angular.module('app', ['ui.router'])
     .controller('JobsController', JobsController)
-    .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
+    .config(['$stateProvider', '$urlRouterProvider', ($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) => {
       $stateProvider.state({
         name: 'jobs',
         url: '/jobs',

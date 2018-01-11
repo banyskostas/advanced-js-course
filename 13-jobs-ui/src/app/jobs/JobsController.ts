@@ -1,10 +1,10 @@
 export class JobsController {
     static $inject = [ '$http' ]
-    jobs = []
+    jobs: any[] = []
     loading = true
 
-    constructor($http) {
-        $http({
+    constructor($http: ng.IHttpService) {
+        $http<any[]>({
           url: 'http://localhost:8888/jobs',
           method: 'GET'
         }).then(response => {

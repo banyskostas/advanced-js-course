@@ -9,14 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
+    "@types/angular": "^1.6.40",
+    "@types/domready": "0.0.29",
     "browserify": "^15.0.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "http-server": "^0.10.0",
+    "tsify": "^3.0.4",
+    "typescript": "^2.6.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.9.0"

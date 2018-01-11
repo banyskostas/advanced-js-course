@@ -2,10 +2,10 @@ const gulp = require('gulp')
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
-const babelify = require('babelify')
 const watchify = require('watchify')
 const sass = require('gulp-sass')
 const chalk = require('chalk')
+const tsify = require('tsify')
 const { spawn } = require('child_process')
 
 gulp.task('html', [], function() {
@@ -19,11 +19,10 @@ gulp.task('html:watch', ['html'], function() {
 
 function createBundler() {
     return browserify({
-        entries: './src/app/app.js',
-        transform: [babelify],
+        entries: './src/app/app.ts',
         cache: {},
         packageCache: {}
-    })
+    }).plugin(tsify)
 }
 
 function bundle(bundler) {
