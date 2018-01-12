@@ -10,12 +10,14 @@
   </thead>
   <tbody>
     <tr ng-repeat="job in jobs.jobs">
-      <th>{{job.name}}</th>
-      <th>{{job.startDate | date:'medium'}}</th>
-      <th>{{job.category}}</th>
-      <th>{{job.rate}}</th>
-      <th>{{job.address.city}} {{job.address.street}} {{job.address.house}} {{job.address.flat}}</th>
+        <td><a ui-sref="jobedit({ id: job.id })">{{job.name}}</a></td>
+        <td>{{job.startDate | date:'medium'}}</td>
+        <td>{{job.category}}</td>
+        <td>{{job.rate}}</td>
+        <td>{{job.address.city}} {{job.address.street}} {{job.address.house}} {{job.address.flat}}</td>
     </tr>
   </tbody>
 </table>
-<div class="loader" ng-show="jobs.loading"></div>
+<div class="loader-area">
+    <div class="loader" ng-show="jobs.loading"></div>
+</div>

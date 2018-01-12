@@ -1,0 +1,26 @@
+<form class="job-form">
+    <label for="job-name">Name:</label>
+    <input class="form-control" type="text" id="job-name" ng-model="job.job.name">
+    <label for="job-description">Decription:</label>
+    <textarea id="job-desc" class="form-control" ng-model="job.job.description"></textarea>
+    <label for="job-start-date">Start date:</label>
+    <input class="form-control" type="text" id="job-start-date" ng-model="job.job.startDate">
+    <label for="job-category">Category:</label>
+    <input class="form-control" type="text" id="job-category" ng-model="job.job.category">
+    <label for="job-duration">Expected duration:</label>
+    <input class="form-control" type="text" id="job-duration" placeholder="hh:mm" ng-model="job.job.expectedDuration">
+    <label for="job-rate">Rate:</label>
+    <input class="form-control" type="text" id="job-rate" ng-model="job.job.rate">
+    <label for="job-city">City:</label>
+    <select class="form-control" ng-model="job.job.address.city">
+        <option value="Vilnius">Vilnius</option>
+        <option value="Kaunas">Kaunas</option>
+    </select>
+    <label for="job-street">Street:</label>
+    <input class="form-control" type="text" id="job-street" ng-model="job.job.address.street">
+    <label for="job-street">House:</label>
+    <input class="form-control" type="text" id="job-house" ng-model="job.job.address.house">
+    <label for="job-flat">Flat:</label>
+    <input class="form-control" type="text" id="job-flat" ng-model="job.job.address.flat">
+    <button class="btn btn-primary job-save-button">Save</button>
+</form>

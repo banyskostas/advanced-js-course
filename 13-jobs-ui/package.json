@@ -12,6 +12,7 @@
     "@types/angular": "^1.6.40",
     "@types/domready": "0.0.29",
     "browserify": "^15.0.0",
+    "browserify-shim": "^3.8.14",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "http-server": "^0.10.0",
@@ -27,12 +28,13 @@
     "domready": "^1.0.8",
     "spinthatshit": "^1.0.4"
   },
-  "babel": {
-    "presets": [
-      "env"
-    ],
-    "plugins": [
-      "transform-class-properties"
-    ]
+  "browserify-shim": {
+      "angular": {
+          "exports": "global:angular"
+      },
+      "@uirouter/angularjs": {
+          "depends": [ "angular" ],
+          "exports": "global:ngrouter"
+      }
   }
 }

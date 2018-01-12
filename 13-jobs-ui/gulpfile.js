@@ -6,6 +6,7 @@ const watchify = require('watchify')
 const sass = require('gulp-sass')
 const chalk = require('chalk')
 const tsify = require('tsify')
+const browserifyShim = require('browserify-shim')
 const { spawn } = require('child_process')
 
 gulp.task('html', [], function() {
@@ -19,10 +20,13 @@ gulp.task('html:watch', ['html'], function() {
 
 function createBundler() {
     return browserify({
+        debug: true,
         entries: './src/app/app.ts',
         cache: {},
         packageCache: {}
-    }).plugin(tsify)
+    }).plugin(tsify).transform(browserifyShim, {
+        global: true
+    })
 }
 
 function bundle(bundler) {
