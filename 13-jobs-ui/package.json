@@ -26,15 +26,21 @@
     "@uirouter/angularjs": "^1.0.12",
     "angular": "^1.6.8",
     "domready": "^1.0.8",
+    "moment": "^2.20.1",
     "spinthatshit": "^1.0.4"
   },
   "browserify-shim": {
-      "angular": {
-          "exports": "global:angular"
-      },
-      "@uirouter/angularjs": {
-          "depends": [ "angular" ],
-          "exports": "global:ngrouter"
-      }
+    "angular": {
+      "exports": "global:angular"
+    },
+    "@uirouter/angularjs": {
+      "depends": [
+        "angular"
+      ],
+      "exports": "global:ngrouter"
+    },
+    "moment": {
+        "exports": "global:moment"
+    }
   }
 }

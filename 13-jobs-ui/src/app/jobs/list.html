@@ -1,3 +1,4 @@
+<a ui-sref="jobs.edit({ id: 'new' })" class="btn btn-primary">Create new</a>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -6,15 +7,17 @@
       <th>Category</th>
       <th>Rate</th>
       <th>Address</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="job in jobs.jobs">
-        <td><a ui-sref="jobedit({ id: job.id })">{{job.name}}</a></td>
+        <td><a ui-sref="jobs.edit({ id: job.id })">{{job.name}}</a></td>
         <td>{{job.startDate | date:'medium'}}</td>
         <td>{{job.category}}</td>
         <td>{{job.rate}}</td>
         <td>{{job.address.city}} {{job.address.street}} {{job.address.house}} {{job.address.flat}}</td>
+        <td><button class="btn btn-danger" ng-click="jobs.deleteJob(job)">Delete</button></td>
     </tr>
   </tbody>
 </table>

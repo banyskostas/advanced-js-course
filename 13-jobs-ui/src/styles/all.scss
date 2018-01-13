@@ -1,5 +1,9 @@
 @import '../../node_modules/spinthatshit/src/loaders';
 
+.content {
+    padding: 10px;
+}
+
 .loader-area {
     display: flex;
     justify-content: center;
@@ -14,9 +18,8 @@
 
 .job-form {
     width: 600px;
-    margin: 10px;
 }
 
-.job-save-button {
+.job-form .btn {
     margin-top: 10px;
 }

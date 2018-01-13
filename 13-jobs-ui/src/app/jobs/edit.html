@@ -1,4 +1,4 @@
-<form class="job-form">
+<form class="job-form" ng-submit="job.saveJob()">
     <label for="job-name">Name:</label>
     <input class="form-control" type="text" id="job-name" ng-model="job.job.name">
     <label for="job-description">Decription:</label>
@@ -22,5 +22,6 @@
     <input class="form-control" type="text" id="job-house" ng-model="job.job.address.house">
     <label for="job-flat">Flat:</label>
     <input class="form-control" type="text" id="job-flat" ng-model="job.job.address.flat">
-    <button class="btn btn-primary job-save-button">Save</button>
+    <button class="btn btn-primary" ng-disabled="!job.canSave">Save</button>
+    <a class="btn btn-default" ui-sref="jobs.list">Cancel</a>
 </form>

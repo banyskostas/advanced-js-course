@@ -45,10 +45,10 @@ gulp.task('js:watch', [], function() {
     function watch() {
         console.log('Js change detected. Rebuilding.')
         return bundle(bundler)
+                .on('error', m => console.log(chalk.red('Browserify: ' + m)))
     }
 
     bundler.on('update', watch)
-    bundler.on('error', m => console.log(chalk.red('Browserify: ' + m)))
     bundler.on('log', m => console.log(chalk.cyan('Browserify: ' + m)))
 
     return bundle(bundler)
