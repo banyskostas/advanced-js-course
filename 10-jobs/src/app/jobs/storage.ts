@@ -1,13 +1,16 @@
-import uuid from 'uuid/v4'
-import moment from 'moment'
+import * as uuid from 'uuid/v4'
+import * as moment from 'moment'
+import { MongoClient } from 'mongodb'
 
 export class MongoJobsStorage {
-    constructor(mongoClient) {
+    jobsCollection: any
+
+    constructor(mongoClient: MongoClient) {
         this.jobsCollection = mongoClient.db('darbobirza')
             .collection('jobs')
     }
 
-    saveJob(job) {
+    saveJob(job: any) {
         job._id = uuid()
         job.startDate = moment(job.startDate).toDate()
 
@@ -17,7 +20,7 @@ export class MongoJobsStorage {
             })
     }
 
-    updateJob(id, job) {
+    updateJob(id: string, job: any) {
         var update = {
             '$set': job
         }
@@ -26,14 +29,14 @@ export class MongoJobsStorage {
             .update({ _id: id }, update)
     }
 
-    getJobById(id) {
+    getJobById(id: string) {
         return this.jobsCollection
             .findOne({ _id: id })
     }
 
     // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
-    listJobs(filter) {
-        const mongoQuery = {}
+    listJobs(filter: any) {
+        const mongoQuery: any = {}
         if (filter.namePart) {
             mongoQuery.name = new RegExp('.*' + filter.namePart + '.*')
         }
@@ -94,7 +97,7 @@ export class MongoJobsStorage {
             .toArray()
     }
 
-    removeJob(id) {
+    removeJob(id: string) {
         return this.jobsCollection
             .remove({ _id: id })
     }

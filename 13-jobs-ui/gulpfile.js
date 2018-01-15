@@ -31,6 +31,7 @@ function createBundler() {
 
 function bundle(bundler) {
     return bundler.bundle()
+        .on('error', m => console.log(chalk.red('Browserify: ' + m)))
         .pipe(source('app.js'))
         .pipe(buffer())
         .pipe(gulp.dest('./dist/scripts/'))
@@ -45,7 +46,6 @@ gulp.task('js:watch', [], function() {
     function watch() {
         console.log('Js change detected. Rebuilding.')
         return bundle(bundler)
-                .on('error', m => console.log(chalk.red('Browserify: ' + m)))
     }
 
     bundler.on('update', watch)

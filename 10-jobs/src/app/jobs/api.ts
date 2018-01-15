@@ -1,9 +1,8 @@
-import uuid from 'uuid/v4'
-import moment from 'moment'
-import Joi from 'joi'
+import * as Joi from 'joi'
 import { validate } from './validate'
+import { Request, Response, Next } from 'restify'
 
-function jobToDto(job) {
+function jobToDto(job: any) {
     job.id = job._id
     delete job._id
     return job
@@ -28,10 +27,10 @@ const jobCreateSchema = jobUpdateSchema.keys({
     employerId: Joi.string().required(),
 })
 
-export function register(server, jobsStorage) {
-    server.post('/jobs', validate(jobCreateSchema), function(req, resp, next) {
+export function register(server: any, jobsStorage: any) {
+    server.post('/jobs', validate(jobCreateSchema), function(req: Request, resp: Response, next: Next) {
         jobsStorage.saveJob(req.body)
-            .then(function(job) {
+            .then(function(job: any) {
                 resp.status(201)
                 resp.header('Location', '/jobs/' + job._id)
                 resp.send(jobToDto(job))
@@ -39,12 +38,12 @@ export function register(server, jobsStorage) {
             })
     })
 
-    server.post('/jobs/:id', validate(jobUpdateSchema), function(req, resp, next) {
+    server.post('/jobs/:id', validate(jobUpdateSchema), function(req: Request, resp: Response, next: Next) {
         jobsStorage.updateJob(req.params.id, req.body)
             .then(function() {
                 return jobsStorage.getJobById(req.params.id)
             })
-            .then(function(job) {
+            .then(function(job: any) {
                 if (!job) {
                     resp.status(404)
                     resp.send({ message: 'Job with id ' + req.params.id + ' was not found' })
@@ -56,17 +55,17 @@ export function register(server, jobsStorage) {
     })
 
     // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
-    server.get('/jobs', function(req, resp, next) {
+    server.get('/jobs', function(req: Request, resp: Response, next: Next) {
         jobsStorage.listJobs(req.query)
-            .then(function(jobs) {
+            .then(function(jobs: any[]) {
                 resp.send(jobs.map(jobToDto))
                 next()
             })
     })
 
-    server.get('/jobs/:id', function(req, resp, next) {
+    server.get('/jobs/:id', function(req: Request, resp: Response, next: Next) {
         jobsStorage.getJobById(req.params.id)
-            .then(function(job) {
+            .then(function(job: any) {
                 if (!job) {
                     resp.status(404)
                     resp.send({ message: 'Job with id ' + req.params.id + ' was not found' })
@@ -77,7 +76,7 @@ export function register(server, jobsStorage) {
             })
     })
 
-    server.del('/jobs/:id', function(req, resp, next) {
+    server.del('/jobs/:id', function(req: Request, resp: Response, next: Next) {
         jobsStorage.removeJob(req.params.id)
             .then(function() {
                 resp.status(204)

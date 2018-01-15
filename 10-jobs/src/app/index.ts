@@ -2,18 +2,23 @@ import * as restify from 'restify'
 import { MongoClient } from 'mongodb'
 import * as jobsApi from './jobs/api'
 import { MongoJobsStorage } from './jobs/storage'
-import restifyCorsMiddleware from 'restify-cors-middleware'
+import * as restifyCorsMiddleware from 'restify-cors-middleware'
+import * as authHooks from './auth'
+const restifyOauthServer = require('restify-oauth2')
 
 var mongoUrl = 'mongodb://localhost:27017'
-MongoClient.connect(mongoUrl, function(error, mongoClient) {
-    const cors = restifyCorsMiddleware({
-      origins: ['*']
+MongoClient.connect(mongoUrl, function(_, mongoClient) {
+    const cors = restifyCorsMiddleware(<any>{
+        origins: ['*'],
     })
     const server = restify.createServer()
     server.pre(cors.preflight)
     server.use(cors.actual)
     server.use(restify.plugins.bodyParser())
     server.use(restify.plugins.queryParser())
+    server.use(restify.plugins.authorizationParser())
+
+    restifyOauthServer.ropc(server, { tokenEndpoint: '/token', hooks: authHooks })
 
     jobsApi.register(server, new MongoJobsStorage(mongoClient))
 

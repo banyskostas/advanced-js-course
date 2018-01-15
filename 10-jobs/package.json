@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d dist",
+    "build": "tsc --outDir dist",
     "prestart": "npm run build",
-    "start": "node dist/app/index.js",
+    "start": "node dist/index.js",
     "watch": "npm-watch"
   },
   "watch": {
-    "start": "src/**/*.js"
+    "start": "src/**/*.ts"
   },
   "author": "",
   "license": "ISC",
@@ -21,17 +21,17 @@
     "mongodb": "^3.0.1",
     "restify": "^6.3.4",
     "restify-cors-middleware": "^1.1.0",
+    "restify-oauth2": "github:mariopeixoto/restify-oauth2",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@types/joi": "^13.0.5",
+    "@types/mongodb": "^3.0.1",
+    "@types/restify": "^5.0.7",
+    "@types/restify-cors-middleware": "^1.0.1",
+    "@types/uuid": "^3.4.3",
     "chalk": "^2.3.0",
-    "npm-watch": "^0.3.0"
-  },
-  "babel": {
-    "presets": [
-      "env"
-    ]
+    "npm-watch": "^0.3.0",
+    "typescript": "^2.6.2"
   }
 }
