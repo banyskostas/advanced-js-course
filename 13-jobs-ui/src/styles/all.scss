@@ -1,5 +1,9 @@
 @import '../../node_modules/spinthatshit/src/loaders';
 
+html, body {
+    height: 100%;
+}
+
 .content {
     padding: 10px;
 }
@@ -23,3 +27,5 @@
 .job-form .btn {
     margin-top: 10px;
 }
+
+@import './login';

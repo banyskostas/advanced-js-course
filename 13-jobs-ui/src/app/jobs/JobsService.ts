@@ -34,8 +34,8 @@ export class JobService {
 
     list(): Promise<Job[]> {
         return this.$http<Job[]>({
-          url: `${apiEndpoint}jobs`,
-          method: 'GET'
+            url: `${apiEndpoint}jobs`,
+            method: 'GET'
         }).then(response => response.data)
     }
 

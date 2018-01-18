@@ -10,6 +10,7 @@ var mongoUrl = 'mongodb://localhost:27017'
 MongoClient.connect(mongoUrl, function(_, mongoClient) {
     const cors = restifyCorsMiddleware(<any>{
         origins: ['*'],
+        allowHeaders: ['Authorization']
     })
     const server = restify.createServer()
     server.pre(cors.preflight)
