@@ -14,6 +14,10 @@ export class TokenValidatingHttpInterceptor implements ng.IHttpInterceptor {
         }
 
         const token = this.securityContext.getToken()
+        if (!token) {
+            return config
+        }
+
         return {
             ...config,
             headers: {

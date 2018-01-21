@@ -1,5 +1,5 @@
 import * as Joi from 'joi'
-import { validate } from './validate'
+import { validate } from '../validate'
 import { Request, Response, Next } from 'restify'
 import { mustAuthenticate } from '../auth'
 
@@ -29,7 +29,7 @@ const jobCreateSchema = jobUpdateSchema.keys({
 })
 
 export function register(server: any, jobsStorage: any) {
-    server.post('/jobs', mustAuthenticate, validate(jobCreateSchema), function(req: Request, resp: Response, next: Next) {
+    server.post('/jobs', mustAuthenticate(), validate(jobCreateSchema), function(req: Request, resp: Response, next: Next) {
         jobsStorage.saveJob(req.body)
             .then(function(job: any) {
                 resp.status(201)
@@ -39,7 +39,7 @@ export function register(server: any, jobsStorage: any) {
             })
     })
 
-    server.post('/jobs/:id', mustAuthenticate, validate(jobUpdateSchema), function(req: Request, resp: Response, next: Next) {
+    server.post('/jobs/:id', mustAuthenticate(), validate(jobUpdateSchema), function(req: Request, resp: Response, next: Next) {
         jobsStorage.updateJob(req.params.id, req.body)
             .then(function() {
                 return jobsStorage.getJobById(req.params.id)
@@ -56,7 +56,7 @@ export function register(server: any, jobsStorage: any) {
     })
 
     // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
-    server.get('/jobs', mustAuthenticate, function(req: Request, resp: Response, next: Next) {
+    server.get('/jobs', mustAuthenticate(), function(req: Request, resp: Response, next: Next) {
         jobsStorage.listJobs(req.query)
             .then(function(jobs: any[]) {
                 resp.send(jobs.map(jobToDto))
@@ -64,7 +64,7 @@ export function register(server: any, jobsStorage: any) {
             })
     })
 
-    server.get('/jobs/:id', mustAuthenticate, function(req: Request, resp: Response, next: Next) {
+    server.get('/jobs/:id', mustAuthenticate(), function(req: Request, resp: Response, next: Next) {
         jobsStorage.getJobById(req.params.id)
             .then(function(job: any) {
                 if (!job) {
@@ -77,7 +77,7 @@ export function register(server: any, jobsStorage: any) {
             })
     })
 
-    server.del('/jobs/:id', mustAuthenticate, function(req: Request, resp: Response, next: Next) {
+    server.del('/jobs/:id', mustAuthenticate(), function(req: Request, resp: Response, next: Next) {
         jobsStorage.removeJob(req.params.id)
             .then(function() {
                 resp.status(204)

@@ -91,14 +91,24 @@ export const oauthHooks = {
     validateClient
 }
 
-export function mustAuthenticate(req: Request, resp: Response, next: Next) {
-    if (!req.params.user){
-        resp.send(401, {
-            message: 'Need to log in to use this endpoint'
-        })
-        resp.end()
-        next(false)
-    } else {
-        next()
+export function mustAuthenticate(role?: string) {
+    return (req: Request, resp: Response, next: Next) => {
+        if (!req.params.user){
+            resp.send(401, {
+                message: 'Need to log in to use this endpoint'
+            })
+            resp.end()
+            next(false)
+        } else {
+            if (role && req.params.user.role !== role) {
+                resp.send(403, {
+                    message: 'You are not authorized to perform this request'
+                })
+                resp.end()
+                next(false)
+            } else {
+                next()
+            }
+        }
     }
 }
