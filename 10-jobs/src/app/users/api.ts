@@ -40,21 +40,52 @@ export function register(server: Server, storage: MongoUsersStorage, employersSt
             })
     }
 
-    server.post('/users', mustAuthenticate('Administrator'), validate(userSchema), function(req: Request, resp: Response, next: Next) {
-        validateUser(req.body).then(() => {
-            storage.saveNew(req.body)
-                .then(function(u: User) {
-                    resp.status(201)
-                    resp.header('Location', '/users/' + u.id)
-                    resp.send(u)
-                    next()
-                })
-        }).catch(error => {
+/*
+    async function createUser2(req: Request, resp: Response, next: Next) : Promise<void> {
+        const user: UserSaveRequest = req.body
+        const role = user.claims.find(x => x.name === 'role')
+        if (role && role.value === 'Employer') {
+            const employerClaim = user.claims.find(c => c.name === 'employerId')
+            if (!employerClaim) {
+                resp.status(400)
+                resp.send({ message: 'Must provide employer id claim' })
+                resp.end()
+                next()
+                return
+            }
+
+            const employerId = employerClaim.value
+            const employer = await employersStorage.getById(employerId)
+            if (!employer) {
+                resp.status(400)
+                resp.send({ message: 'Must provide employer id claim' })
+                resp.end()
+                next()
+                return
+            }
+        }
+
+        const u = await storage.saveNew(req.body)
+        resp.status(201)
+        resp.header('Location', '/users/' + u.id)
+        resp.send(u)
+        next()
+    }*/
+
+    server.post('/users', mustAuthenticate('Administrator'), validate(userSchema), async function(req: Request, resp: Response, next: Next) {
+        try {
+            await validateUser(req.body)
+            const u = await storage.saveNew(req.body)
+            resp.status(201)
+            resp.header('Location', '/users/' + u.id)
+            resp.send(u)
+            next()
+        } catch (error) {
             resp.status(400)
             resp.send({ message: error })
             resp.end()
             next()
-        })
+        }
     })
 
     server.post('/users/:id', mustAuthenticate('Administrator'), validate(userSchema), function(req: Request, resp: Response, next: Next) {

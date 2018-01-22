@@ -28,4 +28,10 @@ html, body {
     margin-top: 10px;
 }
 
+input, textarea, select {
+    &.ng-touched.ng-invalid {
+        border: 1px solid red !important;
+    }
+}
+
 @import './login';

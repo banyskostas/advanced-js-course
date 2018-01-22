@@ -1,27 +1,34 @@
-<form class="job-form" ng-submit="job.saveJob()">
+<form name="f" class="job-form" ng-submit="f.$valid && job.saveJob()" novalidate>
     <label for="job-name">Name:</label>
-    <input class="form-control" type="text" id="job-name" ng-model="job.job.name">
+    <input name="name" class="form-control" type="text" id="job-name" ng-model="job.job.name" required>
+    <div ng-show="f.name.$touched && !f.name.$valid">
+        <div class="text-danger">Name is required</div>
+    </div>
     <label for="job-description">Decription:</label>
-    <textarea id="job-desc" class="form-control" ng-model="job.job.description"></textarea>
+    <textarea name="description" id="job-desc" class="form-control" ng-model="job.job.description"></textarea>
     <label for="job-start-date">Start date:</label>
-    <input class="form-control" type="text" id="job-start-date" ng-model="job.job.startDate">
+    <input name="startDate" class="form-control" type="text" id="job-start-date" ng-model="job.job.startDate" ng-pattern="/^\d{4}-\d{2}-\d{2}$/" required>
     <label for="job-category">Category:</label>
-    <input class="form-control" type="text" id="job-category" ng-model="job.job.category">
+    <input name="category" class="form-control" type="text" id="job-category" ng-model="job.job.category" required>
     <label for="job-duration">Expected duration:</label>
-    <input class="form-control" type="text" id="job-duration" placeholder="hh:mm" ng-model="job.job.expectedDuration">
+    <input name="expectedDuration" class="form-control" type="text" id="job-duration" placeholder="hh:mm" ng-model="job.job.expectedDuration" required ng-pattern="/^(\d+:)?[0-5]?\d:[0-5]\d$/">
+    <div ng-show="f.expectedDuration.$touched && !f.expectedDuration.$valid">
+        <div class="text-danger" ng-show="f.expectedDuration.$error.required">Expected duration is required</div>
+        <div class="text-danger" ng-show="f.expectedDuration.$error.pattern">Expected duration must be of HH:MM format</div>
+    </div>
     <label for="job-rate">Rate:</label>
-    <input class="form-control" type="text" id="job-rate" ng-model="job.job.rate">
+    <input name="rate" class="form-control" type="number" id="job-rate" ng-model="job.job.rate" required>
     <label for="job-city">City:</label>
-    <select class="form-control" ng-model="job.job.address.city">
+    <select name="city" class="form-control" ng-model="job.job.address.city" required>
         <option value="Vilnius">Vilnius</option>
         <option value="Kaunas">Kaunas</option>
     </select>
     <label for="job-street">Street:</label>
-    <input class="form-control" type="text" id="job-street" ng-model="job.job.address.street">
-    <label for="job-street">House:</label>
-    <input class="form-control" type="text" id="job-house" ng-model="job.job.address.house">
+    <input name="street" class="form-control" type="text" id="job-street" ng-model="job.job.address.street">
+    <label for="job-house">House:</label>
+    <input name="house" class="form-control" type="text" id="job-house" ng-model="job.job.address.house">
     <label for="job-flat">Flat:</label>
-    <input class="form-control" type="text" id="job-flat" ng-model="job.job.address.flat">
+    <input name="flat" class="form-control" type="text" id="job-flat" ng-model="job.job.address.flat">
     <button class="btn btn-primary" ng-disabled="!job.canSave">Save</button>
     <a class="btn btn-default" ui-sref="jobs.list">Cancel</a>
 </form>
