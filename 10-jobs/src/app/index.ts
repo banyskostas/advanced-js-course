@@ -25,9 +25,11 @@ MongoClient.connect(mongoUrl, function(_, mongoClient) {
 
     restifyOauthServer.ropc(server, { tokenEndpoint: '/token', hooks: oauthHooks })
 
+    const employersStorage = new MongoEmployersStorage(mongoClient)
+
     jobsApi.register(server, new MongoJobsStorage(mongoClient))
-    employersApi.register(server, new MongoEmployersStorage(mongoClient))
-    usersApi.register(server, new MongoUsersStorage(mongoClient))
+    employersApi.register(server, employersStorage)
+    usersApi.register(server, new MongoUsersStorage(mongoClient), employersStorage)
 
     server.listen(8888, () => {
         console.log('%s listening at %s', server.name, server.url);

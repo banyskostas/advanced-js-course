@@ -1,6 +1,7 @@
 import { Server, Request, Response, Next } from 'restify'
 import { mustAuthenticate } from '../auth'
-import { MongoUsersStorage, User } from './storage'
+import { MongoUsersStorage, User, UserSaveRequest } from './storage'
+import { MongoEmployersStorage } from '../employers/storage'
 import * as Joi from 'joi'
 import { validate } from '../validate'
 
@@ -16,15 +17,44 @@ const userSchema = Joi.object().keys({
     ).required()
 })
 
-export function register(server: Server, storage: MongoUsersStorage) {
-    server.post('/users', mustAuthenticate('Administrator'), validate(userSchema), function(req: Request, resp: Response, next: Next) {
-        storage.saveNew(req.body)
-            .then(function(u: User) {
-                resp.status(201)
-                resp.header('Location', '/users/' + u.id)
-                resp.send(u)
-                next()
+export function register(server: Server, storage: MongoUsersStorage, employersStorage: MongoEmployersStorage) {
+    function validateUser(user: UserSaveRequest) : Promise<void> {
+        const role = user.claims.find(x => x.name === 'role')
+        if (!role || role.value !== 'Employer') {
+            return Promise.resolve()
+        }
+
+        const employerClaim = user.claims.find(c => c.name === 'employerId')
+        if (!employerClaim) {
+            return Promise.reject('Employer must have employer id')
+        }
+
+        const employerId = employerClaim.value
+        return employersStorage.getById(employerId)
+            .then(employer => {
+                if (!employer) {
+                    return Promise.reject('Employer with id ' + employerId + ' was not found')
+                }
+
+                return Promise.resolve()
             })
+    }
+
+    server.post('/users', mustAuthenticate('Administrator'), validate(userSchema), function(req: Request, resp: Response, next: Next) {
+        validateUser(req.body).then(() => {
+            storage.saveNew(req.body)
+                .then(function(u: User) {
+                    resp.status(201)
+                    resp.header('Location', '/users/' + u.id)
+                    resp.send(u)
+                    next()
+                })
+        }).catch(error => {
+            resp.status(400)
+            resp.send({ message: error })
+            resp.end()
+            next()
+        })
     })
 
     server.post('/users/:id', mustAuthenticate('Administrator'), validate(userSchema), function(req: Request, resp: Response, next: Next) {
