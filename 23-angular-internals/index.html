@@ -1,0 +1,21 @@
+<html ng-app="app">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    </head>
+    <body ng-controller="MainController as ctrl">
+        <input type="text" ng-model="ctrl.text">
+        <script>
+            angular.module('app', [])
+                .controller('MainController', function($interval) {
+                    this.text = 'foo'
+                    var self = this
+                    var counter = 0
+                    $interval(function() {
+                        counter++
+                        console.log('incrementing counter to ' + counter)
+                        self.text = counter
+                    }, 1000)
+                })
+        </script>
+    </body>
+</html>

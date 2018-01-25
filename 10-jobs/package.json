@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "argon2": "^0.17.0",
     "joi": "^13.1.0",
     "jsonwebtoken": "^8.1.0",
     "moment": "^2.20.1",

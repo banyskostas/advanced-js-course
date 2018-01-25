@@ -1,9 +1,18 @@
 import * as uuid from 'uuid/v4'
-import { MongoClient } from 'mongodb'
+import { MongoClient, Collection } from 'mongodb'
+import { hash, verify } from '../hash'
 
 export interface Claim {
     name: string
     value: string
+}
+
+interface MongoUser {
+    _id: string
+    name: string
+    password: string
+    login: string
+    claims: Claim[]
 }
 
 export interface UserSaveRequest {
@@ -20,11 +29,7 @@ export interface User {
     claims: Claim[]
 }
 
-function toModel(mongoObject: any): User|null {
-    if (!mongoObject) {
-        return null
-    }
-
+function toModel(mongoObject: MongoUser): User {
     return {
         id: mongoObject._id,
         name: mongoObject.name,
@@ -33,43 +38,70 @@ function toModel(mongoObject: any): User|null {
     }
 }
 
+async function toMongoObject(id: string, user: Partial<UserSaveRequest>): Promise<Partial<MongoUser>> {
+    return {
+        _id: id,
+        name: user.name,
+        login: user.login,
+        password: user.password ? await hash(user.password) : undefined,
+        claims: user.claims
+    }
+}
+
 export class MongoUsersStorage {
-    usersCollection: any
+    usersCollection: Collection<MongoUser>
 
     constructor(mongoClient: MongoClient) {
         this.usersCollection = mongoClient.db('darbobirza')
             .collection('users')
     }
 
-    saveNew(user: UserSaveRequest): Promise<User> {
-        user['_id'] = uuid()
+    async saveNew(user: UserSaveRequest): Promise<User> {
+        const saved = await toMongoObject(uuid(), user)
 
-        return this.usersCollection.save(user)
-            .then(function() {
-                return toModel(user)
-            })
+        await this.usersCollection.save(saved)
+        return toModel(<MongoUser>saved)
     }
 
-    update(id: string, user: UserSaveRequest): Promise<any> {
+    async update(id: string, user: Partial<UserSaveRequest>): Promise<any> {
+        const saved = await toMongoObject(id, user)
+
         var update = {
-            '$set': user
+            '$set': saved
         }
 
         return this.usersCollection
             .update({ _id: id }, update)
     }
 
-    getById(id: string): Promise<User|null> {
-        return this.usersCollection
+    async getById(id: string): Promise<User|null> {
+        const found = await this.usersCollection
             .findOne({ _id: id })
-            .then(toModel)
+
+        return found ? toModel(found) : null
     }
 
-    list(): Promise<User[]> {
-        return this.usersCollection
+    async verifyCredentials(username: string, password: string) : Promise<User|null> {
+        const user = await this.usersCollection
+            .findOne({ login: username })
+        if (!user) {
+            return null
+        }
+
+        const passwordMatches = await verify(user.password, password)
+        if (!passwordMatches) {
+            return null
+        }
+
+        return toModel(user)
+    }
+
+    async list(): Promise<User[]> {
+        const users = await this.usersCollection
             .find({})
-            .map(toModel)
             .toArray()
+
+        return users.map(toModel)
     }
 
     remove(id: string): Promise<any> {

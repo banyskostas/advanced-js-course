@@ -7,7 +7,7 @@ import { MongoEmployersStorage } from './employers/storage'
 import * as usersApi from './users/api'
 import { MongoUsersStorage } from './users/storage'
 import * as restifyCorsMiddleware from 'restify-cors-middleware'
-import { oauthHooks }from './auth'
+import { OAuthHooks }from './auth'
 const restifyOauthServer = require('restify-oauth2')
 
 var mongoUrl = 'mongodb://localhost:27017'
@@ -23,13 +23,16 @@ MongoClient.connect(mongoUrl, function(_, mongoClient) {
     server.use(restify.plugins.queryParser())
     server.use(restify.plugins.authorizationParser())
 
+    const employersStorage = new MongoEmployersStorage(mongoClient)
+    const userStorage = new MongoUsersStorage(mongoClient)
+
+    const oauthHooks = new OAuthHooks(userStorage)
     restifyOauthServer.ropc(server, { tokenEndpoint: '/token', hooks: oauthHooks })
 
-    const employersStorage = new MongoEmployersStorage(mongoClient)
 
     jobsApi.register(server, new MongoJobsStorage(mongoClient))
     employersApi.register(server, employersStorage)
-    usersApi.register(server, new MongoUsersStorage(mongoClient), employersStorage)
+    usersApi.register(server, userStorage, employersStorage)
 
     server.listen(8888, () => {
         console.log('%s listening at %s', server.name, server.url);
