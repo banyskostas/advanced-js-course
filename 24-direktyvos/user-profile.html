@@ -1,0 +1,15 @@
+<div class="panel">
+    <div class="panel-title">
+        <h4>{{user.name}}</h4>
+    </div>
+    Email: {{user.email}}<br/>
+
+    <h4>Address:</h4>
+    City: {{user.address.city}}<br/>
+    Street: {{user.address.street}}<br/>
+    House: {{user.address.house}}<br/>
+    Flat: {{user.address.flat}}<br/>
+
+    <button ng-click="unlike()" ng-show="liked">Unlike</button>
+    <button ng-click="like()" ng-show="!liked">Like</button>
+</div>
