@@ -1,0 +1,37 @@
+{
+  "name": "27-angular2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^5.2.2",
+    "@angular/compiler": "^5.2.2",
+    "@angular/core": "^5.2.2",
+    "@angular/forms": "^5.2.2",
+    "@angular/platform-browser": "^5.2.2",
+    "@angular/platform-browser-dynamic": "^5.2.2",
+    "core-js": "^2.5.3",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.20"
+  },
+  "devDependencies": {
+    "browserify": "^15.2.0",
+    "browserify-shim": "^3.8.14",
+    "chalk": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "http-server": "^0.11.1",
+    "sass": "^1.0.0-beta.4",
+    "tsify": "^3.0.4",
+    "typescript": "^2.6.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.10.0"
+  },
+  "browserify-shim": {}
+}

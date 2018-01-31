@@ -1,0 +1,9 @@
+<div>
+    Name: {{user.name}}<br/>
+    Last name: {{user.lastName}}<br/>
+    Friends:
+    <bt-user-friends
+        [friends]="user.friends"
+        (onFriendRemove)="removeFriend($event)"
+    ></bt-user-friends>
+</div>

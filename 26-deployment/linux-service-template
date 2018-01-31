@@ -1,0 +1,15 @@
+[Unit]
+Description=<name of the service>
+Requires=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=<usually dir of the service>
+ExecStart=<startup command>
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+#User=ubuntu
+PermissionsStartOnly=true
+
+[Install]
+WantedBy=multi-user.target

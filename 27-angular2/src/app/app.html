@@ -1,0 +1,14 @@
+<div [class]="className" [style.marginTop]="'10px'">hello {{name}}</div>
+<button (click)="clicked()">Click me</button>
+
+<input [(ngModel)]="value" />
+<div>{{value}}</div>
+
+<ul>
+    <li *ngFor="let color of colors">{{color}}</li>
+</ul>
+<div *ngIf="value === 'foo'">
+    labas
+</div>
+
+<bt-user *ngFor="let user of users" [user]="user"></bt-user>

@@ -1,0 +1,41 @@
+{
+  "name": "darbobirza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --outDir dist",
+    "prestart": "npm run build",
+    "start": "node dist/index.js",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "start": "src/**/*.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.17.0",
+    "joi": "^13.1.0",
+    "jsonwebtoken": "^8.1.0",
+    "moment": "^2.20.1",
+    "mongodb": "^3.0.1",
+    "restify": "^6.3.4",
+    "restify-cors-middleware": "^1.1.0",
+    "restify-oauth2": "github:mariopeixoto/restify-oauth2",
+    "tslib": "^1.9.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/joi": "^13.0.5",
+    "@types/jsonwebtoken": "^7.2.5",
+    "@types/mongodb": "^3.0.1",
+    "@types/restify": "^5.0.7",
+    "@types/restify-cors-middleware": "^1.0.1",
+    "@types/uuid": "^3.4.3",
+    "chalk": "^2.3.0",
+    "npm-watch": "^0.3.0",
+    "typescript": "^2.6.2"
+  }
+}
