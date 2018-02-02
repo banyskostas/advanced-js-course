@@ -21,7 +21,15 @@ function toModel(mongoObject: any): Employer|null {
     }
 }
 
-export class MongoEmployersStorage {
+export interface EmployersStorage {
+    saveNew(employer: EmployerSaveRequest): Promise<Employer>
+    update(id: string, employer: EmployerSaveRequest): Promise<any>
+    getById(id: string): Promise<Employer|null>
+    list(): Promise<Employer[]>
+    remove(id: string): Promise<any>
+}
+
+export class MongoEmployersStorage implements EmployersStorage {
     employersCollection: any
 
     constructor(mongoClient: MongoClient) {

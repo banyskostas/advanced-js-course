@@ -3,7 +3,7 @@ import { mustAuthenticate } from '../auth'
 import { MongoUsersStorage, User, UserSaveRequest } from './storage'
 import { MongoEmployersStorage } from '../employers/storage'
 import * as Joi from 'joi'
-import { validate } from '../validate'
+import { validate, Validator } from '../validate'
 
 const userSchema = Joi.object().keys({
     name: Joi.string().required(),
@@ -40,7 +40,7 @@ export function register(server: Server, storage: MongoUsersStorage, employersSt
             })
     }
 
-    server.post('/users', mustAuthenticate('Administrator'), validate(userSchema), async function(req: Request, resp: Response, next: Next) {
+    server.post('/users', mustAuthenticate('Administrator'), validate(new Validator<User>(userSchema)), async function(req: Request, resp: Response, next: Next) {
         try {
             await validateUser(req.body)
             const u = await storage.saveNew(req.body)
@@ -56,7 +56,7 @@ export function register(server: Server, storage: MongoUsersStorage, employersSt
         }
     })
 
-    server.post('/users/:id', mustAuthenticate('Administrator'), validate(userSchema), function(req: Request, resp: Response, next: Next) {
+    server.post('/users/:id', mustAuthenticate('Administrator'), validate(new Validator<User>(userSchema)), function(req: Request, resp: Response, next: Next) {
         storage.update(req.params.id, req.body)
             .then(function() {
                 return storage.getById(req.params.id)

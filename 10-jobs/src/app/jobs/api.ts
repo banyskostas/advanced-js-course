@@ -1,5 +1,5 @@
 import * as Joi from 'joi'
-import { validate } from '../validate'
+import { validate, Validator } from '../validate'
 import { Request, Response, Next } from 'restify'
 import { mustAuthenticate } from '../auth'
 
@@ -28,8 +28,10 @@ const jobCreateSchema = jobUpdateSchema.keys({
     employerId: Joi.string().required(),
 })
 
+export const jobCreateValidator = new Validator<any>(jobCreateSchema)
+
 export function register(server: any, jobsStorage: any) {
-    server.post('/jobs', mustAuthenticate(), validate(jobCreateSchema), function(req: Request, resp: Response, next: Next) {
+    server.post('/jobs', mustAuthenticate(), validate(jobCreateValidator), function(req: Request, resp: Response, next: Next) {
         jobsStorage.saveJob(req.body)
             .then(function(job: any) {
                 resp.status(201)
@@ -39,7 +41,7 @@ export function register(server: any, jobsStorage: any) {
             })
     })
 
-    server.post('/jobs/:id', mustAuthenticate(), validate(jobUpdateSchema), function(req: Request, resp: Response, next: Next) {
+    server.post('/jobs/:id', mustAuthenticate(), validate(new Validator<any>(jobUpdateSchema)), function(req: Request, resp: Response, next: Next) {
         jobsStorage.updateJob(req.params.id, req.body)
             .then(function() {
                 return jobsStorage.getJobById(req.params.id)

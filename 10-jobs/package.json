@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
+    "pretest": "npm run build",
     "build": "tsc --outDir dist",
     "prestart": "npm run build",
     "start": "node dist/index.js",
@@ -34,8 +35,10 @@
     "@types/restify": "^5.0.7",
     "@types/restify-cors-middleware": "^1.0.1",
     "@types/uuid": "^3.4.3",
+    "ava": "^0.25.0",
     "chalk": "^2.3.0",
     "npm-watch": "^0.3.0",
+    "typemoq": "^2.1.0",
     "typescript": "^2.6.2"
   }
 }
