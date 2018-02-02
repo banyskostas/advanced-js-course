@@ -4,19 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/angular": "^1.6.40",
     "@types/domready": "0.0.29",
+    "@types/jest": "^22.1.1",
     "browserify": "^15.0.0",
     "browserify-shim": "^3.8.14",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "http-server": "^0.10.0",
+    "jest": "^22.1.4",
+    "ts-jest": "^22.0.2",
     "tsify": "^3.0.4",
+    "typemoq": "^2.1.0",
     "typescript": "^2.6.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
@@ -43,5 +47,19 @@
     "moment": {
       "exports": "global:moment"
     }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
