@@ -1,0 +1,74 @@
+{
+  "name": "13-jobs-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rimraf dist",
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/angular": "^1.6.40",
+    "@types/domready": "0.0.29",
+    "@types/jest": "^22.1.1",
+    "awesome-typescript-loader": "^3.4.1",
+    "browserify": "^15.0.0",
+    "browserify-shim": "^3.8.14",
+    "copy-webpack-plugin": "^4.3.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.10.0",
+    "jest": "^22.1.4",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.2",
+    "tsify": "^3.0.4",
+    "typemoq": "^2.1.0",
+    "typescript": "^2.6.2",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.9.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.12",
+    "angular": "^1.6.8",
+    "domready": "^1.0.8",
+    "moment": "^2.20.1",
+    "spinthatshit": "^1.0.4",
+    "tslib": "^1.8.1"
+  },
+  "browserify-shim": {
+    "angular": {
+      "exports": "global:angular"
+    },
+    "@uirouter/angularjs": {
+      "depends": [
+        "angular"
+      ],
+      "exports": "global:ngrouter"
+    },
+    "moment": {
+      "exports": "global:moment"
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}

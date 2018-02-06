@@ -1,0 +1,12 @@
+<div class="login-background">
+    <div class="login-side">
+        <form class="login-form" ng-submit="login.login()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" class="form-control" ng-model="login.username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" class="form-control" ng-model="login.password">
+            <div class="text-danger">{{login.message}}</div>
+            <button type="submit" class="btn btn-primary login-button">Login</button>
+        </form>
+    </div>
+</div>

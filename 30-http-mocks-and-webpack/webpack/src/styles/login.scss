@@ -1,0 +1,22 @@
+.login-background {
+    background: #0013de;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.login-side {
+    background: white;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form {
+    padding: 15px;
+}
+
+.login-button {
+    margin-top: 10px;
+}
