@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    db:
+        image: mongo
+        ports:
+            - "28017:27017"
+    api:
+        image: bt-jobs-api
+        ports:
+            - "8888:8888"
+        depends_on:
+            - db
+    web:
+        build: .
+        ports:
+            - "5555:80"
