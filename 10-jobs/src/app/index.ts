@@ -10,7 +10,7 @@ import * as restifyCorsMiddleware from 'restify-cors-middleware'
 import { OAuthHooks }from './auth'
 const restifyOauthServer = require('restify-oauth2')
 
-var mongoUrl = 'mongodb://localhost:27017'
+var mongoUrl = 'mongodb://db:27017'
 MongoClient.connect(mongoUrl, function(_, mongoClient) {
     const cors = restifyCorsMiddleware(<any>{
         origins: ['*'],
