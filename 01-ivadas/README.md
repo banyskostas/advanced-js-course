@@ -33,3 +33,9 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (W3) Controllers (https://www.w3schools.com/angular/angular_controllers.asp)
  - (W3) Filters (https://www.w3schools.com/angular/angular_filters.asp)
  - (Github) 02 direktyvos
+ 
+ ## Namų darbai:
+ 1. Padaryti kuno mases indekso skaičiuoklį, kuris neperkrovus puslapio parodytų rezultatą ir išvadą naudojant angular js. Dizainas, etc... savo nuožiūra.
+ Formulė: https://lt.wikipedia.org/wiki/K%C5%ABno_mas%C4%97s_indeksas
+ 
+ 2. TBA 
