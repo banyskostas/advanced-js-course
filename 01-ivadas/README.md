@@ -20,6 +20,16 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
 - **Anglų kalba** - dauguma kurso medžiagos bus anglų kalba
 ## Naudingos nuorodos
 - [Angular.js dokumentacija](https://docs.angularjs.org/api)
+- [Angular.js pamokos](https://www.w3schools.com/angular/default.asp)
 
 ## Paskaitos rašliava
  - [Plunkr nuoroda](https://plnkr.co/edit/3Vy9wsrZ3Edqukp4HwMH?p=preview)
+ 
+## Eiliškumas:
+ - (W3) Home (https://www.w3schools.com/angular/default.asp)
+ - (W3) Intro (https://www.w3schools.com/angular/angular_intro.asp)
+ - (W3) Expressions (https://www.w3schools.com/angular/angular_expressions.asp)
+ - (W3) Modules (https://www.w3schools.com/angular/angular_modules.asp)
+ - (W3) Controllers (https://www.w3schools.com/angular/angular_controllers.asp)
+ - (W3) Filters (https://www.w3schools.com/angular/angular_filters.asp)
+ - (Github) 02 direktyvos
