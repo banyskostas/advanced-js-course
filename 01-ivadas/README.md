@@ -62,6 +62,7 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  Formulė: https://lt.wikipedia.org/wiki/K%C5%ABno_mas%C4%97s_indeksas
  
  2. Sugalvoti ir pateikti idėją dėl baigiamojo darbo, kuri atitiktų reikalavimus. Pateikimas tūrėtų būti raštu mūsų naudojamame Slack'e per asmenine žinutę. 
- Prašau parašyti kontruktyviai ir suprantamai. Kur turėsite klausimų galėsime aptarti individualiai per paskaitą.
+ Prašau parašyti kontruktyviai ir suprantamai. Kur turėsite klausimų galėsime aptarti individualiai per paskaitą. Namų 
+ darbas gali užtrukti todėl galutinis variantas tūrėtų būti iki savaitės galo.
  
  3. TBA
