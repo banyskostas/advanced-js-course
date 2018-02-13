@@ -32,10 +32,36 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (W3) Modules (https://www.w3schools.com/angular/angular_modules.asp)
  - (W3) Controllers (https://www.w3schools.com/angular/angular_controllers.asp)
  - (W3) Filters (https://www.w3schools.com/angular/angular_filters.asp)
- - (Github) 02 direktyvos
+ - (local) 02-direktyvos/direktyvos
+ 
+ - (local) 02-direktyvos/simple-examples/1_helloWorld
+ - (local) 02-direktyvos/simple-examples/2_addNumbers
+ - (local) 02-direktyvos/simple-examples/3_inMemoryCounter
+ - (local) 02-direktyvos/simple-examples/4_automaticCounter
+ - (local) 02-direktyvos/simple-examples/5_calculator
+ - (local) 02-direktyvos/simple-examples/6_todo
+ - (local) 02-direktyvos/todo
+ - (W3) JS Scope (https://www.w3schools.com/js/js_scope.asp)
+ - (W3) Angular JS Scopes (https://www.w3schools.com/angular/angular_scopes.asp)
+ - (W3) JS Functions (https://www.w3schools.com/js/js_function_definition.asp)
+ - (W3) JS Function invocation (https://www.w3schools.com/js/js_function_invocation.asp)
+ - (local) 03-teorija/scope.html
+ - (W3) JS Objects (https://www.w3schools.com/js/js_object_definition.asp)
+ - (W3) JS Objects properties (https://www.w3schools.com/js/js_properties.asp)
+ - (W3) JS Objects methods (https://www.w3schools.com/js/js_object_methods.asp)
+ - (W3) JS Objects constructors (https://www.w3schools.com/js/js_object_constructors.asp)
+ - (W3) JS Objects prototypes (https://www.w3schools.com/js/js_object_prototypes.asp)
+ - (MDN) JS new operator (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+ - (MDN) JS this operator (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+ - (sitepoint) JS inheritence (https://www.sitepoint.com/simple-inheritance-javascript/)
+ - (hackernoon) JS inheritence once more(https://hackernoon.com/inheritance-in-javascript-21d2b82ffa6f)
+ 
  
  ## Namų darbai:
  1. Padaryti kuno mases indekso skaičiuoklį, kuris neperkrovus puslapio parodytų rezultatą ir išvadą naudojant angular js. Dizainas, etc... savo nuožiūra.
  Formulė: https://lt.wikipedia.org/wiki/K%C5%ABno_mas%C4%97s_indeksas
  
- 2. TBA 
+ 2. Sugalvoti ir pateikti idėją dėl baigiamojo darbo, kuri atitiktų reikalavimus. Pateikimas tūrėtų būti raštu mūsų naudojamame Slack'e per asmenine žinutę. 
+ Prašau parašyti kontruktyviai ir suprantamai. Kur turėsite klausimų galėsime aptarti individualiai per paskaitą.
+ 
+ 3. TBA

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title>Simple example 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/calculatorController.js"></script>
+</head>
+<div ng-controller="CalculatorController">
+    <p><input type="number" ng-model="a"></p>
+    <p><input type="number" ng-model="b"></p>
+    <p><select ng-model="operator">
+        <option>+</option>
+        <option>*</option>
+        <option>-</option>
+        <option>/</option>
+    </select></p>
+    <p>{{ result() }}</p>
+</div>
+</body>
+</html>

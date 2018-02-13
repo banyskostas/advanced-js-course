@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!doctype html>
+<html ng-app="app">
+<head>
+    <title>Simple example 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/numbersController.js"></script>
+</head>
+<div ng-controller="AddNumbersController">
+    <input ng-model="a" ng-keyup="AddNumbers()">
+    <input ng-model="b" ng-keyup="AddNumbers()">
+    <h1>{{ sum }}</h1>
+</div>
+</body>
+</html>
