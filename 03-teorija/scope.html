@@ -35,18 +35,21 @@
                 console.log('po to c =', c)
             }
             penkta()
+
+            console.log('po to c =', c)
         </script>
         <script>
-            var d = 123
+            var d = 123;
 
             function sesta() {
                 // var d;
                 console.log('is pradziu d =', d)
-                var d = 456
+                var d = 456;
                 console.log('po to d =', d)
-                // console.log(window.d)
+                 console.log(window.d);
             }
             sesta()
+//            console.log('po to d =', d)
         </script>
         <script>
             for (var i = 0; i < 5; i++) {
@@ -120,21 +123,24 @@
             // rectangle() <- klaida
 
             var angular = angularCreator()
-            // angular.rectangle() <- ok
+             angular.rectangle() //<- ok
 
             var angular = function() {
                 function rectangle() {
-
+                    console.log('Hello');
                 }
 
                 return {
                     rectangle: rectangle
                 }
             }
-            //angular().rectangle()
+            console.log('sita vieta');
+            angular().rectangle()
+
+
             var angular = (function() {
                 function rectangle() {
-
+console.log('hello world 3000');
                 }
 
                 function triangle() {
@@ -145,7 +151,7 @@
                     rectangle: rectangle
                 }
 
-                /*
+
                 return {
                     rectangle: function() {
 
@@ -155,10 +161,13 @@
                     },
                     kintamasis: 1
                 }
-                */
+
             })() // IIFE (Immediately executed function expression)
             // revealing module pattern
+
+            console.log(angular.rectangle());
         </script>
+        ///////////////////////
         <script>
             'use strict'
 

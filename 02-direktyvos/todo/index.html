@@ -7,7 +7,7 @@
         <script src="scripts/TodoController.js"></script>
     </head>
     <body ng-controller="TodoController">
-        <form ng-submit="issaugoti(task)">
+        <form ng-submit="issaugoti()">
             <input type="text" ng-model="task" />
         </form>
         <ul ng-repeat="item in todoList | filter:currentFilter">

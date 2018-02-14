@@ -22,7 +22,10 @@
         <input ng-model="title"><button>Add</button>
     </form>
     <ul>
-        <li ng-repeat="t in tasks track by $index">{{ t }} <button ng-click="delete()">x</button></li>
+        <li ng-repeat="t in tasks track by $index" ng-click="go(t);">
+            {{ t }}
+            <button ng-click="delete($index)">x</button>
+        </li>
     </ul>
 </div>
 </body>
