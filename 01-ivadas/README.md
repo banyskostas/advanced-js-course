@@ -33,7 +33,6 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (W3) Controllers (https://www.w3schools.com/angular/angular_controllers.asp)
  - (W3) Filters (https://www.w3schools.com/angular/angular_filters.asp)
  - (local) 02-direktyvos/direktyvos
- 
  - (local) 02-direktyvos/simple-examples/1_helloWorld
  - (local) 02-direktyvos/simple-examples/2_addNumbers
  - (local) 02-direktyvos/simple-examples/3_inMemoryCounter
@@ -41,6 +40,7 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 02-direktyvos/simple-examples/5_calculator
  - (local) 02-direktyvos/simple-examples/6_todo
  - (local) 02-direktyvos/todo
+ - (W3) JS Strict mode (https://www.w3schools.com/js/js_strict.asp)
  - (W3) JS Scope (https://www.w3schools.com/js/js_scope.asp)
  - (W3) Angular JS Scopes (https://www.w3schools.com/angular/angular_scopes.asp)
  - (W3) JS Functions (https://www.w3schools.com/js/js_function_definition.asp)
@@ -53,8 +53,35 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (W3) JS Objects prototypes (https://www.w3schools.com/js/js_object_prototypes.asp)
  - (MDN) JS new operator (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
  - (MDN) JS this operator (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+ - (local) 03-teorija/thisandstuff.html
  - (sitepoint) JS inheritence (https://www.sitepoint.com/simple-inheritance-javascript/)
  - (hackernoon) JS inheritence once more(https://hackernoon.com/inheritance-in-javascript-21d2b82ffa6f)
+ - (mozilla) Callback (https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+ - (w3) JS map function (https://www.w3schools.com/jsref/jsref_map.asp)
+ - (w3) JS filter function (https://www.w3schools.com/jsref/jsref_filter.asp)
+ - (w3) JS reduce function (https://www.w3schools.com/jsref/jsref_reduce.asp)
+ - (local) 04-todo_ir_teorija/functional
+ - (MDN) HTTP overview (https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+ - (IBM) RESTful webservice  (https://www.ibm.com/developerworks/library/ws-restful/index.html)
+ - (W3) JSON (https://www.w3schools.com/js/js_json_intro.asp)
+ - (W3) AJAX (https://www.w3schools.com/js/js_ajax_intro.asp)
+ - (W3) AngularJS AJAX - $http (https://www.w3schools.com/angular/angular_http.asp)
+ - (local) 04-todo_ir_teorija/github
+ - (local) 04-todo_ir_teorija/todo
+ - (W3) Node.js (https://www.w3schools.com/nodejs/nodejs_intro.asp)
+ - (Youtube) (https://www.youtube.com/watch?v=65a5QQ3ZR2g&list=PL55RiY5tL51oGJorjEgl6NVeDbx_fO5jR)
+ - (W3) Node.js NPM (https://www.w3schools.com/nodejs/nodejs_npm.asp)
+ - (Google) https://developers.google.com/web/fundamentals/primers/promises
+ - (local) 08/promises/numbers.js
+ - (local) 08/src/app/index.js
+ - (local) 09-mongo
+ - (Medium) Modern JS (https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70)
+ - (Scotch) JS transpilers https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them
+ - (nodejs) Dockerize Node.Js (https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
+ - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
+ 
+
+ 
  
  
  ## Namų darbai:
