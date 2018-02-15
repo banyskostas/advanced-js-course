@@ -1,47 +1,63 @@
-function Labas($scope) {
-    $scope.todoList = []
+"use strict";
+(function () {
+    angular.module('todo')
+        .controller('TodoController', function ($scope) {
+            $scope.todoList = [];
+            $scope.task = '';
 
-    $scope.issaugoti = function(task) {
-        $scope.todoList.push({ done: false, task: task })
-    }
+            $scope.issaugoti = function () {
+                console.log($scope.task);
+                console.log('hello?');
 
-    $scope.always = function() {
-        return true
-    }
 
-    $scope.isNotDone = function(item) {
-        return !item.done
-    }
-
-    $scope.isDone = function(item) {
-        return item.done
-    }
-
-    $scope.countNotDone = function() {
-        var count = 0;
-        for (var i = 0; i < $scope.todoList.length; i++) {
-            if (!$scope.todoList[i].done) {
-                count++;
+                $scope.todoList.push({done: false, task: $scope.task})
             }
-        }
 
-        return count
-    }
+            /**
+             *
+             * @link http://google.lt/ ...
+             *
+             * TODO implement 3rd party api
+             *
+             * @param {int|string} variable
+             * @returns {int|string}
+             */
+            $scope.always = function (variable) {
+                return variable;
+            }
 
-    $scope.currentFilter = $scope.always
+            $scope.isNotDone = function (item) {
 
-    $scope.showAll = function() {
-        $scope.currentFilter = $scope.always
-    }
+                // TODO change this
+                return !item.done
+            }
 
-    $scope.showActive = function() {
-        $scope.currentFilter = $scope.isNotDone
-    }
+            $scope.isDone = function (item) {
+                return item.done
+            }
 
-    $scope.showCompleted = function() {
-        $scope.currentFilter = $scope.isDone
-    }
-}
+            $scope.countNotDone = function () {
+                var count = 0;
+                for (var i = 0; i < $scope.todoList.length; i++) {
+                    if (!$scope.todoList[i].done) {
+                        count++;
+                    }
+                }
+                return count;
+            }
 
-var todoModule = angular.module('todo')
-todoModule.controller('TodoController', Labas)
+            $scope.currentFilter = $scope.always;
+
+            $scope.showAll = function () {
+                $scope.currentFilter = $scope.always
+            }
+
+            $scope.showActive = function () {
+                $scope.currentFilter = $scope.isNotDone
+            }
+
+            $scope.showCompleted = function () {
+                $scope.currentFilter = $scope.isDone
+            }
+        });
+})();
