@@ -2,9 +2,9 @@
 <html>
     <body>
         <script>
-            console.log('this yra', this) // will log window object
-            var a = 1
-            console.log('this yra', this) // will log window object with variable 'a' in it -> global variables are defined on window object
+            console.log('this yra', this); // will log window object
+            var a = 1;
+            console.log('this yra', this); // will log window object with variable 'a' in it -> global variables are defined on window object
             /*
             console.log(a)
             console.log(window.a) // node.js console.log(global.a)
@@ -139,6 +139,7 @@
             String.prototype.doStuff = function() {
                 console.log('labas')
             }
+            String.__proto__.doStuff();
         </script>
     </body>
 </html>

@@ -172,13 +172,22 @@ console.log('hello world 3000');
             'use strict'
 
             function kazkas() {
-                var kintamasis = 3;
+//                var kintamasis = 3;
                 /// ...200 lines later
-                kintmasis = 7;
+                kintamasis = 7;
                 console.log(kintamasis);
             }
 
             kazkas()
         </script>
+    <script>
+        var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+
+        var x = Object.create(person);
+        x.age = 10;
+        person.age = 11;
+        x.age = 1;
+        console.log(person.age);
+    </script>
     </body>
 </html>
