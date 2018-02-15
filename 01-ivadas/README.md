@@ -92,4 +92,10 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  Prašau parašyti kontruktyviai ir suprantamai. Kur turėsite klausimų galėsime aptarti individualiai per paskaitą. Namų 
  darbas gali užtrukti todėl galutinis variantas tūrėtų būti iki savaitės galo.
  
- 3. TBA
+ 3. Mini apsipirkimo imitacija. Turime sąrašą prekių objektų su kainomis, sąrašas turi būti atvaizduotas lentelėje ir 
+ galime pažymėti kurias prekes norime pirkti. Pasirinkus prekės turi likti pažymėtos ir taip pat turi atsirasti 
+ atskiroje lentelėje "Krepšelis" (Prekė, kiekis ,vnt. kaina, suma, veiksmai). Krepšelyje turi būti galimybė keisti 
+ prekių kiekį, o tai turi perskaičiuoti prekės sumą ir bendrą krepšelio sumą. Taip pat turi būti galimybė prekes 
+ pašalinti, kas irgi turi įtakoti krepšelio sumą ir prekė turi atsižymėti bendrąjame sąraše.
+ 
+ 4. TBA
