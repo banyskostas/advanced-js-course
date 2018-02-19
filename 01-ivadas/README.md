@@ -75,6 +75,7 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 08/promises/numbers.js
  - (local) 08/src/app/index.js
  - (local) 09-mongo
+ - (W3) Angular routing (https://www.w3schools.com/angular/angular_routing.asp)
  - (Medium) Modern JS (https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70)
  - (Scotch) JS transpilers https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them
  - (nodejs) Dockerize Node.Js (https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
