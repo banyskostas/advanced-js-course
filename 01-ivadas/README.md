@@ -75,14 +75,39 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 08/promises/numbers.js
  - (local) 08/src/app/index.js
  - (local) 09-mongo
- - (Medium) Modern JS (https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70)
+ - (MDN) HTTP authentication (https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
+ - (Github) Node basic auth (https://github.com/jshttp/basic-auth)
+ - (SO) Basic http authentication in nodejs (https://stackoverflow.com/questions/5951552/basic-http-authentication-in-node-js)
+ - (coderseye) Plain JS basic http auth (https://coderseye.com/2007/how-to-do-http-basic-auth-in-ajax.html)
+ - (SO) Basic http authentication in angularjs (https://stackoverflow.com/questions/34413732/add-http-basic-authentication-to-this-http-get-in-angularjs)
+ - (sitepoint) Angular $apply and $digest (https://www.sitepoint.com/understanding-angulars-apply-digest/)
+ - (W3) Angular routing (https://www.w3schools.com/angular/angular_routing.asp)
+ - (w3) Angular services (https://www.w3schools.com/angular/angular_services.asp)
+ - (w3) Angular directives (https://www.w3schools.com/angular/angular_directives.asp)
+ - (local) 24-direktyvos
+ - (local) 25-decorator-directives
+ - (SO) 3rd party modules in AngularJS (https://stackoverflow.com/questions/18094229/including-3rd-party-modules-in-angular-app)
+ - (Require.js) Require.js (http://requirejs.org/)
+ - (local) 06-amd/amd/index.html
+ - (local) 06-amd/github/index.html
  - (Scotch) JS transpilers https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them
+ - (Medium) Modern JS (https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70)
+ - (local) 11-modern-js
+ - (local) 12-angular-modern-js
+ - (SO) Require vs import (https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export)
  - (nodejs) Dockerize Node.Js (https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
  - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
- 
-
- 
- 
+ - (local) 15-typescript
+ - (gulpjs) Gulp js(https://gulpjs.com/)
+ - (local) 13-jobs-ui
+ - (docker) https://www.docker.com/get-docker
+ - (local) 10-jobs
+ - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+ - (Angular) Angular2 (https://angular.io/guide/quickstart)
+ - (Medium) Angular2 NgModules (https://medium.com/@cyrilletuzi/understanding-angular-modules-ngmodule-and-their-scopes-81e4ed6f7407)
+ - (local) 27-angular2
+ - (Angular) Angular2 arcitecture (https://angular.io/guide/architecture)
+ - (netmedia) Angular architecture patterns (http://netmedia.io/blog/angular-architecture-patterns-high-level-project-architecture_5589) 
  
  ## Namų darbai:
  1. Padaryti kuno mases indekso skaičiuoklį, kuris neperkrovus puslapio parodytų rezultatą ir išvadą naudojant angular js. Dizainas, etc... savo nuožiūra.
@@ -92,4 +117,10 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  Prašau parašyti kontruktyviai ir suprantamai. Kur turėsite klausimų galėsime aptarti individualiai per paskaitą. Namų 
  darbas gali užtrukti todėl galutinis variantas tūrėtų būti iki savaitės galo.
  
- 3. TBA
+ 3. Mini apsipirkimo imitacija. Turime sąrašą prekių objektų su kainomis, sąrašas turi būti atvaizduotas lentelėje ir 
+ galime pažymėti kurias prekes norime pirkti. Pasirinkus prekės turi likti pažymėtos ir taip pat turi atsirasti 
+ atskiroje lentelėje "Krepšelis" (Prekė, kiekis ,vnt. kaina, suma, veiksmai). Krepšelyje turi būti galimybė keisti 
+ prekių kiekį, o tai turi perskaičiuoti prekės sumą ir bendrą krepšelio sumą. Taip pat turi būti galimybė prekes 
+ pašalinti, kas irgi turi įtakoti krepšelio sumą ir prekė turi atsižymėti bendrąjame sąraše.
+ 
+ 4. TBA
