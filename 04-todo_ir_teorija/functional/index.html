@@ -13,6 +13,9 @@
             return result
         }
 
+        var masyvas = [0,1,2,3,4,5,6,7,8,9];
+        console.log(nelyginiaiElementai(masyvas));
+
         function lyginiaiElementai(array) {
             var result = []
 
@@ -25,6 +28,8 @@
 
             return result
         }
+        var masyvas = [0,1,2,3,4,5,6,7,8,9];
+        console.log(lyginiaiElementai(masyvas));
 
         function didesniNei5(array) {
             var result = []
@@ -38,6 +43,11 @@
 
             return result
         }
+        var masyvas = [0,1,2,3,4,5,6,7,8,9];
+        console.log(masyvas.filter(function(skaicius) {
+            return skaicius >= 5;
+        }));
+
 
         function ilgisDidesnisUz5(array) {
             var result = []
@@ -80,15 +90,25 @@
             var newMax = Math.max(tarpinis.max, el)
             return { min: newMin, max: newMax }
         }, { min: masyvas[0], max: masyvas[0] })
-        console.log(rezultatas)
+        console.log(rezultatas);
 
 
         function reduce(array, reductor, seed) {
             var tarpinis = seed
             for (var i = 0; i < array.length; i++) {
-                tarpinis = reductor(tarpinis, array[i])
+                tarpinis -= array[i]
             }
             return tarpinis
         }
+
+        var masyvas = [0,1,2,3,4,5,6,7,8,9];
+
+        console.log(reduce(masyvas, customFunkcija, 100));
+
+        function customFunkcija(tarpinis, skaicius) {
+            return tarpinis - skaicius;
+        }
+
+
     </script>
 </html>

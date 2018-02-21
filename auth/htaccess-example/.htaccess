@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Access to the staging site"
+AuthUserFile C:\xampp\htdocs\advanced-js-course\auth\htaccess-example\.htpasswd
+Require valid-user

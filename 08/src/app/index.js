@@ -22,14 +22,24 @@ server.put('/users/:login', function(req, resp, next) {
     next()
 })
 
-server.get('/users/:login', function(req, resp, next) {
-    var login = req.params.login
-    var user = users.filter(function(u) {
+//TODO iskelti imkita faila del pvz
+function searchUser(login) {
+    return users.filter(function(u) {
         return u.login === login
-    })[0]
+    })[0];
+}
 
-    if (user) {
-        resp.send(user)
+server.get('/users/:login', function(req, resp, next) {
+    // Get url params
+    var login = req.params.login;
+    // ...
+
+    // Logic ...
+    var result = searchUser(login);
+
+    // Response
+    if (result) {
+        resp.send(result)
     } else {
         resp.status(404)
         resp.end()

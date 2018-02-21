@@ -3,8 +3,9 @@
         var self = this
         $http({
             method: 'GET',
-            url: 'https://api.github.com/users/octocat'
+            url: 'https://api.github.com/users/banyskostas'
         }).then(function(response) {
+            console.log(response.data);
             self.data = response.data
         })
     }
