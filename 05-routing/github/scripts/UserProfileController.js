@@ -1,11 +1,8 @@
 (function() {
-    function UserProfileController($http, $stateParams) {
+    function UserProfileController($http, $stateParams, githubRepoService) {
         var self = this
 
-        $http({
-            method: 'GET',
-            url: 'https://api.github.com/users/' + $stateParams.username
-        }).then(function(response) {
+        githubRepoService.getUser($stateParams.username).then(function(response) {
             self.user = {
                 avatar: response.data.avatar_url,
                 login: response.data.login,

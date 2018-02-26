@@ -5,9 +5,22 @@
         <link rel="stylesheet" href="styles/all.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
         <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
-        <script type="text/javascript" src="scripts/app.js"></script>
+
+        <!--Main-->
+        <script type="text/javascript" src="scripts/app.module.js"></script>
+
+        <!--Repos-->
+        <script type="text/javascript" src="scripts/repos/github.repo.js"></script>
+
+        <!--Directives-->
+        <script type="text/javascript" src="scripts/directives/colorText.directive.js"></script>
+
+        <!--Controllers-->
         <script type="text/javascript" src="scripts/GithubProfileController.js"></script>
         <script type="text/javascript" src="scripts/UserProfileController.js"></script>
+
+        <!--Routes-->
+        <script type="text/javascript" src="scripts/app.routes.js"></script>
     </head>
     <body ng-controller="GithubProfileController as profile">
         <form>

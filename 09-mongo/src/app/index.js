@@ -1,5 +1,16 @@
 var MongoClient = require('mongodb').MongoClient
 var restify = require('restify')
+var crypto = require('crypto');
+
+/**
+ * Calculates the MD5 hash of a string.
+ *
+ * @param  {String} string - The string (or buffer).
+ * @return {String}        - The MD5 hash.
+ */
+function md5(string) {
+    return crypto.createHash('md5').update(string).digest('hex');
+}
 
 var url = 'mongodb://localhost:27017'
 
@@ -49,15 +60,35 @@ server.use(function slowHandler(req, res, next) {
         token=header.split(/\s+/).pop()||'',            // and the encoded auth token
         auth=new Buffer(token, 'base64').toString(),    // convert from base64
         parts=auth.split(/:/),                          // split on colon
-        username=parts[0],
+        username=parts[0].replace(/[^a-z0-9]/gi, ''),    // Validate
         password=parts[1];
 
-    console.log(username, password);
-    if (username !== 'hello' || password !== 'world' ) {
-        res.writeHead(401, {});
-        res.end();
-    }
-    next();
+    connect(function(dbo, client) {
+        dbo.collection(collections.users.id).findOne({username: username}, null, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+
+            let ok = false;
+
+            if (result) {
+                if (md5(password) === result.password) {
+                    ok = true;
+                } else {
+                    res.writeHead(401, {});
+                }
+            } else {
+                res.writeHead(401, {});
+            }
+
+            client.close();
+
+            if (ok) {
+                next();
+                return;
+            }
+            res.end();
+        });
+    });
 });
 
 server.get('/values', function(req, resp, next) {
@@ -92,7 +123,7 @@ server.post('/values', function(req, resp, next) {
 })
 
 server.listen(8080, function() {
-    console.log('Listening on 8080')
+    console.log('Listening on 8080');
 })
 
 
