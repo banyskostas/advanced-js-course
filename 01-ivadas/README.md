@@ -95,12 +95,12 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 11-modern-js
  - (local) 12-angular-modern-js
  - (SO) Require vs import (https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export)
+ - (docker) https://www.docker.com/get-docker
  - (nodejs) Dockerize Node.Js (https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
  - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
  - (local) 15-typescript
  - (gulpjs) Gulp js(https://gulpjs.com/)
  - (local) 13-jobs-ui
- - (docker) https://www.docker.com/get-docker
  - (local) 10-jobs
  - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
  - (Angular) Angular2 (https://angular.io/guide/quickstart)
