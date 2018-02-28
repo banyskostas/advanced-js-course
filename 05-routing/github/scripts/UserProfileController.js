@@ -1,6 +1,10 @@
 (function() {
-    function UserProfileController($http, $stateParams, githubRepoService) {
-        var self = this
+    function UserProfileController($http, $stateParams, githubRepoService, $scope) {
+        var self = this;
+
+        self.colorObj = {
+            color: 'blue'
+        }
 
         githubRepoService.getUser($stateParams.username).then(function(response) {
             self.user = {
@@ -10,6 +14,8 @@
                 company: response.data.company,
                 location: response.data.location,
             }
+            // $emit dispatches an event upwards ... $broadcast dispatches an event downwards
+            $scope.$broadcast('user-loaded', {user: self.user});
 
             $http({
                 method: 'GET',

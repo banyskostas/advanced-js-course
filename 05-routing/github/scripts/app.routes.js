@@ -3,11 +3,11 @@
 
     angular
         .module('github')
-        .config(['$stateProvider', routes]);
+        .config(['$stateProvider', '$locationProvider', routes]);
 
-    // routes.$inject = ['$stateProvider'];
+    // routes.$inject = ['$stateProvider', '$locationProvider'];
 
-    function routes($stateProvider) {
+    function routes($stateProvider,$locationProvider) {
             $stateProvider.state({
                 name: 'root',
                 url: '/',

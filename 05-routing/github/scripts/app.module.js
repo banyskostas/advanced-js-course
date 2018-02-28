@@ -3,7 +3,8 @@
     angular
         .module('github',
             [
-                'ui.router'
+                'ui.router',
+                'angularMoment'
             ]
         );
 })()
