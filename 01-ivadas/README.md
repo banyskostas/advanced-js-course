@@ -97,12 +97,28 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (SO) Require vs import (https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export)
  - (docker) https://www.docker.com/get-docker
  - (nodejs) Dockerize Node.Js (https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
- - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
- - (local) 15-typescript
-  - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
- - (local) 10-jobs
+ - (local) 10 branch -> API rašymas.
+ - (local) 12 branch -> objektų validavimas, modernus JS browseryje.
+ - (github) JOI (https://github.com/hapijs/joi)
+ - (local) 13 branch -> Restify handlers, gulp.
  - (gulpjs) Gulp js(https://gulpjs.com/)
- - (local) 13-jobs-ui
+ - (css-tricks) Gulp explained (https://css-tricks.com/gulp-for-beginners/)
+ - (local) 14 branch -> UI rašymas, CORS
+ - (jscrambler) CORS explained(https://blog.jscrambler.com/understanding-cors-cross-origin-resource-sharing/)
+ - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
+ - (okta) OAuth 2.0 explained(https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
+ - (local) 15 paskaita (branch) -> TypeScript
+ - (local) 16 paskaita (branch) -> UI rašymas
+ - (local) 17 paskaita (branch) -> autentifikacija
+ - (risingstack) Web auth methods explained (https://blog.risingstack.com/web-authentication-methods-explained/)
+ - (local) 18 paskaita (branch) -> autentifikacija
+ - (local) 19 paskaita (branch) -> autentifikacija
+ - (local) 20 paskaita (branch) -> autorizacija
+ - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+TBA ...
+
+- (local) 13-jobs-ui
  - (Angular) Angular2 (https://angular.io/guide/quickstart)
  - (Medium) Angular2 NgModules (https://medium.com/@cyrilletuzi/understanding-angular-modules-ngmodule-and-their-scopes-81e4ed6f7407)
  - (local) 27-angular2
