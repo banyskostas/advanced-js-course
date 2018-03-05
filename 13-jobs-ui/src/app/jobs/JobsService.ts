@@ -1,4 +1,4 @@
-const apiEndpoint = 'http://localhost:8888/'
+const apiEndpoint = 'http://localhost:8080/'
 
 export interface Address {
     city: string

@@ -99,10 +99,10 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (nodejs) Dockerize Node.Js (https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
  - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
  - (local) 15-typescript
+  - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+ - (local) 10-jobs
  - (gulpjs) Gulp js(https://gulpjs.com/)
  - (local) 13-jobs-ui
- - (local) 10-jobs
- - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
  - (Angular) Angular2 (https://angular.io/guide/quickstart)
  - (Medium) Angular2 NgModules (https://medium.com/@cyrilletuzi/understanding-angular-modules-ngmodule-and-their-scopes-81e4ed6f7407)
  - (local) 27-angular2
