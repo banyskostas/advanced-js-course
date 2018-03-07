@@ -2,7 +2,7 @@ var uuid = require('uuid/v4')
 var moment = require('moment')
 
 function jobToDto(job) {
-    job.id = job._id
+    // job.id = job._id
     delete job._id
     return job
 }
@@ -35,15 +35,16 @@ function register(server, mongoClient) {
             .findOne({ _id: id })
     }
 
-    // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
+    // // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
     function listJobs(filter) {
         var mongoQuery = {}
         if (filter.namePart) {
             mongoQuery.name = new RegExp('.*' + filter.namePart + '.*')
         }
 
+        console.log(filter);
         if (filter.employerId) {
-            mongoQuery.employerId = filter.employerId
+            mongoQuery.employerId = parseInt(filter.employerId)
         }
 
         var dateFilter = {}
@@ -64,17 +65,22 @@ function register(server, mongoClient) {
             mongoQuery.startDate = dateFilter
         }
 
+        console.log( jobsCollection
+            .find(mongoQuery)
+            .toArray());
+
         return jobsCollection
             .find(mongoQuery)
             .toArray()
     }
 
     function removeJob(id) {
-        return jobsCollection
-            .remove({ _id: id })
+        return jobsCollection.deleteOne({ _id: id });
     }
 
+
     server.post('/jobs', function(req, resp, next) {
+
         /*
          * {
          *      "name": "kazkas",
@@ -116,7 +122,7 @@ function register(server, mongoClient) {
             })
     })
 
-    // /jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
+    //jobs?namePart=foo&employerId=1&startingFrom=2017-01-01&startingTo=2017-02-01&category=restaurants,cleaning&rateFrom=10&rateTo=20&city=Vilnius
     server.get('/jobs', function(req, resp, next) {
         listJobs(req.query)
             .then(function(jobs) {
