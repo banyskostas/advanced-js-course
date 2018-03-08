@@ -105,6 +105,7 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (css-tricks) Gulp explained (https://css-tricks.com/gulp-for-beginners/)
  - (local) 14 branch -> UI rašymas, CORS
  - (jscrambler) CORS explained(https://blog.jscrambler.com/understanding-cors-cross-origin-resource-sharing/)
+ - (github) node express cors (https://github.com/expressjs/cors)
  - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
  - (okta) OAuth 2.0 explained(https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
  - (local) 15 paskaita (branch) -> TypeScript
