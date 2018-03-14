@@ -106,7 +106,8 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 14 branch -> UI rašymas, CORS
  - (jscrambler) CORS explained(https://blog.jscrambler.com/understanding-cors-cross-origin-resource-sharing/)
  - (github) node express cors (https://github.com/expressjs/cors)
- - (tutplus) Node OAuth with Mongo example (https://code.tutsplus.com/tutorials/token-based-authentication-with-angularjs-nodejs--cms-22543)
+ - (tutplus) Node OAuth with Mongo example origins of Kostas github example(https://code.tutsplus.com/tutorials/token-based-authentication-with-angularjs-nodejs--cms-22543)
+ - (github) Node OAuth with Mongo example (https://github.com/banyskostas/Node-OAuth-with-Mongo)
  - (medium) Node environment files (https://medium.com/@rafaelvidaurre/managing-environment-variables-in-node-js-2cb45a55195f)
  - (tutorialzine) Typescript (https://tutorialzine.com/2016/07/learn-typescript-in-30-minutes)
  - (okta) OAuth 2.0 explained(https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth)
