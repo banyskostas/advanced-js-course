@@ -106,6 +106,7 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 14 branch -> UI rašymas, CORS
  - (jscrambler) CORS explained(https://blog.jscrambler.com/understanding-cors-cross-origin-resource-sharing/)
  - (github) node express cors (https://github.com/expressjs/cors)
+ - (risingstack) Web auth methods explained (https://blog.risingstack.com/web-authentication-methods-explained/)
  - (tutplus) Node OAuth with Mongo example origins of Kostas github example(https://code.tutsplus.com/tutorials/token-based-authentication-with-angularjs-nodejs--cms-22543)
  - (github) Node OAuth with Mongo example (https://github.com/banyskostas/Node-OAuth-with-Mongo)
  - (medium) Node environment files (https://medium.com/@rafaelvidaurre/managing-environment-variables-in-node-js-2cb45a55195f)
@@ -114,20 +115,43 @@ Jums prireiks Node.js vykdymo aplinkos. Ji leidžia vykdyti JavaScript programas
  - (local) 15 paskaita (branch) -> TypeScript
  - (local) 16 paskaita (branch) -> UI rašymas
  - (local) 17 paskaita (branch) -> autentifikacija
- - (risingstack) Web auth methods explained (https://blog.risingstack.com/web-authentication-methods-explained/)
  - (local) 18 paskaita (branch) -> autentifikacija
  - (local) 19 paskaita (branch) -> autentifikacija
  - (local) 20 paskaita (branch) -> autorizacija
  - (MDN) Async/await (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+ - (local) 21 paskaita (commit) -> Async/await
+ - (local) 22 paskaita (commit) -> Async/await
+ https://www.youtube.com/watch?v=--tnZMuoK3E
+ https://www.npmjs.com/package/bcrypt
+ https://github.com/crypto-browserify/pbkdf2
+ https://github.com/ranisalt/node-argon2
+ - (local) 23 paskaita (commit) -> Password hash
+ 
+ !!!!!!!!!!!!!!!!!!!1
+ 
+ 
+ - TODO Pasiruosti ikelti projekta i serveri su git pvz 13 papke
+ 
+ !!!!!!!!!!!!!!!!!!!
+ 
 
-TBA ...
-
-- (local) 13-jobs-ui
  - (Angular) Angular2 (https://angular.io/guide/quickstart)
  - (Medium) Angular2 NgModules (https://medium.com/@cyrilletuzi/understanding-angular-modules-ngmodule-and-their-scopes-81e4ed6f7407)
  - (local) 27-angular2
  - (Angular) Angular2 arcitecture (https://angular.io/guide/architecture)
  - (netmedia) Angular architecture patterns (http://netmedia.io/blog/angular-architecture-patterns-high-level-project-architecture_5589) 
+ - (local) 28 paskaita (commit) -> Automated tests (and 10-jobs added tests and validation)
+ - https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha
+ - https://github.com/avajs/ava
+ - (local) 29 paskaita (commit) -> TDD (29-tdd -> minesweeper game and 10-jobs added some TDD examples)
+ 
+ TBA...
+ 
+ http testai,
+ pasiruosimnas UI testam, 
+ ui testai
+
+
  
  ## Namų darbai:
  1. Padaryti kuno mases indekso skaičiuoklį, kuris neperkrovus puslapio parodytų rezultatą ir išvadą naudojant angular js. Dizainas, etc... savo nuožiūra.
